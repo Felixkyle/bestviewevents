@@ -40,7 +40,7 @@
         }
 
         body {
-            background: rgb(43, 39, 33);
+            background: rgb(46, 45, 44);
             color: var(--ink);
             font-family: 'Manrope', sans-serif;
             overflow-x: hidden;
@@ -221,6 +221,16 @@
             color: var(--amber-soft);
         }
 
+
+        .em-hero-text {
+            margin-left: 10px;
+            color: white;
+        }
+
+        .em-hero-text h1 {
+            width: 70%;
+        }
+
         .btn-primary {
             background: var(--amber);
             color: #0B0C0F;
@@ -283,61 +293,176 @@
             transform: translateY(-2px);
         }
 
-            .nav-toggle{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:40px;height:40px;min-width:40px;border-radius:10px;border:1px solid var(--line-bright);background:transparent;cursor:pointer;padding:0;flex-shrink:0;}
-    .nav-toggle span{display:block;width:20px;height:2px;background:var(--ink);transition:transform .25s ease,opacity .2s ease;}
-    nav.menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-    nav.menu-open .nav-toggle span:nth-child(2){opacity:0;}
-    nav.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .nav-caret{display:none;}
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--line-bright);
+            background: transparent;
+            cursor: pointer;
+            padding: 0;
+            flex-shrink: 0;
+        }
 
-    @media (max-width: 1100px) {
-      .nav-toggle{display:flex;}
-      .nav-links{
-        display:none;
-        position:absolute;
-        top:100%;
-        left:0;
-        right:0;
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-        background:var(--bg-3);
-        border-bottom:1px solid var(--line-bright);
-        max-height:calc(100vh - 78px);
-        overflow-y:auto;
-        padding:6px 20px 24px;
-        box-shadow:0 24px 40px rgba(0,0,0,.45);
-      }
-      nav.menu-open .nav-links{display:flex;}
-      .nav-item:hover .nav-drop{transform:none;left:0;right:0;}
-      .nav-item.open .nav-drop{transform:none;left:0;right:0;}
-      .nav-links > a{margin-top:0 !important;width:100%;padding:14px 4px;border-bottom:1px solid var(--line);}
-      .nav-item{width:100%;position:relative;}
-      .nav-item > a{margin-top:0 !important;width:100%;padding:14px 44px 14px 4px;border-bottom:1px solid var(--line);box-sizing:border-box;}
-      .nav-item > a::after{display:none;}
-      .nav-caret{
-        display:flex;align-items:center;justify-content:center;
-        position:absolute;right:0;top:0;width:44px;height:48px;
-        background:transparent;border:none;color:var(--ink-dim);cursor:pointer;
-        transition:transform .2s ease,color .2s ease;
-      }
-      .nav-item.open .nav-caret{transform:rotate(180deg);color:var(--amber-soft);}
-      .nav-drop{
-        position:static;display:none;opacity:1;visibility:visible;transform:none;
-        min-width:0;width:100%;background:rgba(255,255,255,0.03);
-        border:none;border-radius:10px;box-shadow:none;padding:6px;margin:0 0 10px;
-      }
-      .nav-item.open .nav-drop{display:block;}
-    }
+        .nav-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--ink);
+            transition: transform .25s ease, opacity .2s ease;
+        }
 
-    @media (max-width: 560px) {
-      .nav-actions .icon-btn,
-      .nav-actions .btn-dark{display:none;}
-      .nav-actions{gap:8px;}
-      .nav-actions .btn-primary{padding:9px 14px;font-size:12.5px;}
-      .nav-inner{height:66px;}
-      .logo img{height:32px;}
-    }
+        nav.menu-open .nav-toggle span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        nav.menu-open .nav-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        nav.menu-open .nav-toggle span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+        .num.mono{
+            color: white;
+        }
+        .nav-caret {
+            display: none;
+        }
+
+        @media (max-width: 1100px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: var(--bg-3);
+                border-bottom: 1px solid var(--line-bright);
+                max-height: calc(100vh - 78px);
+                overflow-y: auto;
+                padding: 6px 20px 24px;
+                box-shadow: 0 24px 40px rgba(0, 0, 0, .45);
+            }
+
+            nav.menu-open .nav-links {
+                display: flex;
+            }
+
+            .nav-item:hover .nav-drop {
+                transform: none;
+                left: 0;
+                right: 0;
+            }
+
+            .nav-item.open .nav-drop {
+                transform: none;
+                left: 0;
+                right: 0;
+            }
+
+            .nav-links>a {
+                margin-top: 0 !important;
+                width: 100%;
+                padding: 14px 4px;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .nav-item {
+                width: 100%;
+                position: relative;
+            }
+
+            .nav-item>a {
+                margin-top: 0 !important;
+                width: 100%;
+                padding: 14px 44px 14px 4px;
+                border-bottom: 1px solid var(--line);
+                box-sizing: border-box;
+            }
+
+            .nav-item>a::after {
+                display: none;
+            }
+            .nav-caret {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 44px;
+                height: 48px;
+                background: transparent;
+                border: none;
+                color: var(--ink-dim);
+                cursor: pointer;
+                transition: transform .2s ease, color .2s ease;
+            }
+
+            .nav-item.open .nav-caret {
+                transform: rotate(180deg);
+                color: var(--amber-soft);
+            }
+
+            .nav-drop {
+                position: static;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                min-width: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.03);
+                border: none;
+                border-radius: 10px;
+                box-shadow: none;
+                padding: 6px;
+                margin: 0 0 10px;
+            }
+
+            .nav-item.open .nav-drop {
+                display: block;
+            }
+        }
+
+        @media (max-width: 560px) {
+
+            .nav-actions .icon-btn,
+            .nav-actions .btn-dark {
+                display: none;
+            }
+
+            .nav-actions {
+                gap: 8px;
+            }
+
+            .nav-actions .btn-primary {
+                padding: 9px 14px;
+                font-size: 12.5px;
+            }
+
+            .nav-inner {
+                height: 66px;
+            }
+
+            .logo img {
+                height: 32px;
+            }
+        }
 
 
         .crumb {
@@ -389,7 +514,7 @@
 
         .blog-hero p.lede {
             font-size: 16px;
-            color: var(--ink-dim);
+            color: whitesmoke;
             max-width: 560px;
             line-height: 1.65;
         }
@@ -509,7 +634,7 @@
             background: rgba(11, 12, 15, 0.6);
             backdrop-filter: blur(6px);
             border: 1px solid var(--line-bright);
-            color: var(--amber-soft);
+            color: white;
             padding: 6px 12px;
             border-radius: 100px;
         }
@@ -517,7 +642,7 @@
         .post-body .num {
             font-family: 'Space Mono';
             font-size: 11.5px;
-            color: var(--ink-dimmer);
+            color: white;
             margin-bottom: 14px;
             display: block;
         }
@@ -640,6 +765,13 @@
             display: grid;
             grid-template-columns: 1.4fr repeat(4, 1fr);
             gap: 32px;
+            grid-template-columns: 1.3fr 1fr 1fr 1fr 0.8fr 0.8fr 0.9fr;
+        }
+
+        @media (max-width: 900px) {
+            .foot-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         .foot-col h5 {
@@ -757,7 +889,8 @@
             </div>
 
             <div class="nav-actions">
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+                <button class="nav-toggle" type="button" aria-label="Toggle navigation menu"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
                 <div class="icon-btn">⌕</div>
                 <a class="btn-dark"
                     href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20to%20book%20or%20rent%20something.">Book
@@ -771,12 +904,15 @@
 
     <div class="wrap crumb"><a href="index.html">Home</a> · Blog</div>
 
-    <header class="wrap blog-hero">
-        <span class="eyebrow">KADIS BLOG</span>
-        <h1>Guides on media, events <span class="grad">and everything we rent out.</span></h1>
-        <p class="lede">Straight answers on equipment rental, event production and media coverage — written from
-            jobs we've actually run across Abuja, not generic advice.</p>
 
+    <header class="wrap blog-hero">
+        <div class="em-hero-text">
+            <span class="eyebrow">KADIS BLOG</span>
+            <h1>Guides on media, events <span class="grad">and everything we rent out.</span></h1>
+            <p class="lede">Straight answers on equipment rental, event production and media coverage — written from
+                jobs we've actually run across Abuja, not generic advice.</p>
+
+        </div>
         <div class="idx-grid">
             <a class="idx-card reveal" href="#post-event-equipment-rental-abuja"><span class="n mono">01</span><span
                     class="t">Event Equipment Rental in Abuja</span></a>
@@ -1163,7 +1299,7 @@
                         alt="Event coordination team working together" loading="lazy">
                 </div>
                 <div class="post-body">
-                    <span class="num mono">15 — KADIS Events & Rental Guides</span>
+                    <span class="num mono">15 — KADIS Events, Media & Rental Guides</span>
                     <h2>How a Kadis booking runs, from enquiry to delivered files</h2>
                     <p>Every booking starts the same way — a message on WhatsApp describing the event, date and what's
                         needed. From there we scope the crew and equipment, send a quote, and confirm the booking once
@@ -1241,7 +1377,7 @@
                             <img src="images/kadis eventmedia.png" alt="Kadis"
                                 style="height:38px; width:auto; border-radius:8px;">
                         </a>
-                        <p style="color:var(--ink-dim); font-size:13px; line-height:1.7; max-width:260px;">Kadis Events
+                        <p style="color:var(--ink-dim); font-size:13px; line-height:1.7; max-width:260px;">Kadis Events,
                             Media & Rentals production, coverage and equipment rentals for weddings, corporates,
                             conferences and
                             concerts across Abuja.</p>
@@ -1257,6 +1393,11 @@
                         <a href="media.html#advert-jingles">Advert/Jingles</a>
                         <a href="media.html#podcast-production">Podcast Production</a>
                         <a href="media.html#livestreaming">Livestreaming</a>
+                        <a href="media.html#digital-marketing">Digital Marketing</a>
+                        <a href="media.html#digital-printing">Digital Printing</a>
+                        <a href="media.html#leads-generation">Leads Generation</a>
+                        <a href="media.html#website-designing">Website Designing</a>
+                        <a href="media.html#social-media-ads">Social Media Ads</a>
                     </div>
                     <div class="foot-col">
                         <h5>Events</h5>
@@ -1271,14 +1412,36 @@
                     </div>
                     <div class="foot-col">
                         <h5>Rentals</h5>
-                        <a href="index.html#rentals">Camera</a>
-                        <a href="index.html#rentals">Lenses</a>
-                        <a href="index.html#rentals">Lighting</a>
-                        <a href="index.html#rentals">Audio & PA</a>
-                        <a href="index.html#rentals">Projectors & Screens</a>
+
+                        <a href="index.html#rentals">JBL 15-Inch Double Speakers</a>
+                        <a href="index.html#rentals">Power Amplifiers</a>
+                        <a href="index.html#rentals">Mixers</a>
+                        <a href="index.html#rentals">Public Address Systems</a>
+                        <a href="index.html#rentals">Mobile Speakers</a>
+                        <a href="index.html#rentals">Microphones</a>
                         <a href="index.html#rentals">LED Screens</a>
-                        <a href="index.html#rentals">Staging</a>
-                        <a href="index.html#rentals">Phone Booths</a>
+                        <a href="index.html#rentals">Projectors</a>
+                        <a href="index.html#rentals">Laptops</a>
+                        <a href="index.html#rentals">Paper Printers</a>
+                        <a href="index.html#rentals">Photo/Passport Printers</a>
+                        <a href="index.html#rentals">Photocopiers</a>
+                        <a href="index.html#rentals">Scanners</a>
+                        <a href="index.html#rentals">Photo Cameras</a>
+                        <a href="index.html#rentals">Video Cameras</a>
+                        <a href="index.html#rentals">Mobile Power Tanks</a>
+                        <a href="index.html#rentals">Ring Lights</a>
+                        <a href="index.html#rentals">Tripods</a>
+                        <a href="index.html#rentals">Drones</a>
+                        <a href="index.html#rentals">Delivery Bikes</a>
+                        <a href="index.html#rentals">Welding Machines</a>
+                        <a href="index.html#rentals">Drilling Machines</a>
+                        <a href="index.html#rentals">ICT Engineering Tools</a>
+                        <a href="index.html#rentals">Satellite Trackers & Finders</a>
+                        <a href="index.html#rentals">Walkie Talkies</a>
+                        <a href="index.html#rentals">Garretts</a>
+                        <a href="index.html#rentals">CCTV Cameras</a>
+                        <a href="index.html#rentals">Routers & Switches</a>
+
                         <a href="package.html">Event Packages</a>
                     </div>
                     <div class="foot-col">
@@ -1314,7 +1477,7 @@
                         <a href="blog.html#post-power-backup-solutions-events">Power & Backup Solutions for Events</a>
                         <a href="blog.html#post-event-planning-management">Event Planning & Management</a>
                         <a href="blog.html#post-ict-digital-solutions-events">ICT & Digital Solutions for Events</a>
-                        <a href="blog.html#post-kadis-events-rental-guides">KADIS Events & Rental Guides</a>
+                        <a href="blog.html#post-kadis-events-rental-guides">KADIS Events, Media & Rental Guides</a>
                     </div>
                 </div>
             </div>
@@ -1353,56 +1516,56 @@
     </script>
 
 
-  <script>
-  (function () {
-    var nav = document.querySelector('nav');
-    if (!nav) return;
-    var toggle = nav.querySelector('.nav-toggle');
-    var items = nav.querySelectorAll('.nav-item');
+    <script>
+        (function () {
+            var nav = document.querySelector('nav');
+            if (!nav) return;
+            var toggle = nav.querySelector('.nav-toggle');
+            var items = nav.querySelectorAll('.nav-item');
 
-    items.forEach(function (item) {
-      var drop = item.querySelector('.nav-drop');
-      if (!drop) return;
-      var caret = document.createElement('button');
-      caret.type = 'button';
-      caret.className = 'nav-caret';
-      caret.setAttribute('aria-label', 'Toggle submenu');
-      caret.innerHTML = '&#9662;';
-      item.appendChild(caret);
-      caret.addEventListener('click', function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-        var isOpen = item.classList.contains('open');
-        items.forEach(function (i) { i.classList.remove('open'); });
-        if (!isOpen) item.classList.add('open');
-      });
-    });
+            items.forEach(function (item) {
+                var drop = item.querySelector('.nav-drop');
+                if (!drop) return;
+                var caret = document.createElement('button');
+                caret.type = 'button';
+                caret.className = 'nav-caret';
+                caret.setAttribute('aria-label', 'Toggle submenu');
+                caret.innerHTML = '&#9662;';
+                item.appendChild(caret);
+                caret.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    var isOpen = item.classList.contains('open');
+                    items.forEach(function (i) { i.classList.remove('open'); });
+                    if (!isOpen) item.classList.add('open');
+                });
+            });
 
-    if (toggle) {
-      toggle.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('menu-open');
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        if (!isOpen) items.forEach(function (i) { i.classList.remove('open'); });
-      });
-    }
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    var isOpen = nav.classList.toggle('menu-open');
+                    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (!isOpen) items.forEach(function (i) { i.classList.remove('open'); });
+                });
+            }
 
-    document.addEventListener('click', function (e) {
-      if (nav.classList.contains('menu-open') && !nav.contains(e.target)) {
-        nav.classList.remove('menu-open');
-        items.forEach(function (i) { i.classList.remove('open'); });
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
+            document.addEventListener('click', function (e) {
+                if (nav.classList.contains('menu-open') && !nav.contains(e.target)) {
+                    nav.classList.remove('menu-open');
+                    items.forEach(function (i) { i.classList.remove('open'); });
+                    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
 
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 1100 && nav.classList.contains('menu-open')) {
-        nav.classList.remove('menu-open');
-        items.forEach(function (i) { i.classList.remove('open'); });
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  })();
-  </script>
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 1100 && nav.classList.contains('menu-open')) {
+                    nav.classList.remove('menu-open');
+                    items.forEach(function (i) { i.classList.remove('open'); });
+                    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
 
 </body>
 
