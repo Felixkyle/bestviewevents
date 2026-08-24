@@ -43,7 +43,7 @@
     }
 
     body {
-      background: rgb(43, 39, 33);
+      background: rgb(46, 45, 44);
       color: var(--ink);
       font-family: 'Manrope', sans-serif;
       overflow-x: hidden;
@@ -353,60 +353,182 @@
       transform: translateY(-2px);
     }
 
-        .nav-toggle{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:40px;height:40px;min-width:40px;border-radius:10px;border:1px solid var(--line-bright);background:transparent;cursor:pointer;padding:0;flex-shrink:0;}
-    .nav-toggle span{display:block;width:20px;height:2px;background:var(--ink);transition:transform .25s ease,opacity .2s ease;}
-    nav.menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-    nav.menu-open .nav-toggle span:nth-child(2){opacity:0;}
-    nav.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .nav-caret{display:none;}
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--line-bright);
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink);
+      transition: transform .25s ease, opacity .2s ease;
+    }
+
+    nav.menu-open .nav-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .em-hero-text {
+      margin-left: 10px;
+    }
+
+    .em-hero-text h1 {
+      width: 70%;
+    }
+
+    nav.menu-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    nav.menu-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-caret {
+      display: none;
+    }
 
     @media (max-width: 1100px) {
-      .nav-toggle{display:flex;}
-      .nav-links{
-        display:none;
-        position:absolute;
-        top:100%;
-        left:0;
-        right:0;
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-        background:var(--bg-3);
-        border-bottom:1px solid var(--line-bright);
-        max-height:calc(100vh - 78px);
-        overflow-y:auto;
-        padding:6px 20px 24px;
-        box-shadow:0 24px 40px rgba(0,0,0,.45);
+      .nav-toggle {
+        display: flex;
       }
-      nav.menu-open .nav-links{display:flex;}
-      .nav-item:hover .nav-drop{transform:none;left:0;right:0;}
-      .nav-item.open .nav-drop{transform:none;left:0;right:0;}
-      .nav-links > a{margin-top:0 !important;width:100%;padding:14px 4px;border-bottom:1px solid var(--line);}
-      .nav-item{width:100%;position:relative;}
-      .nav-item > a{margin-top:0 !important;width:100%;padding:14px 44px 14px 4px;border-bottom:1px solid var(--line);box-sizing:border-box;}
-      .nav-item > a::after{display:none;}
-      .nav-caret{
-        display:flex;align-items:center;justify-content:center;
-        position:absolute;right:0;top:0;width:44px;height:48px;
-        background:transparent;border:none;color:var(--ink-dim);cursor:pointer;
-        transition:transform .2s ease,color .2s ease;
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--bg-3);
+        border-bottom: 1px solid var(--line-bright);
+        max-height: calc(100vh - 78px);
+        overflow-y: auto;
+        padding: 6px 20px 24px;
+        box-shadow: 0 24px 40px rgba(0, 0, 0, .45);
       }
-      .nav-item.open .nav-caret{transform:rotate(180deg);color:var(--amber-soft);}
-      .nav-drop{
-        position:static;display:none;opacity:1;visibility:visible;transform:none;
-        min-width:0;width:100%;background:rgba(255,255,255,0.03);
-        border:none;border-radius:10px;box-shadow:none;padding:6px;margin:0 0 10px;
+
+      nav.menu-open .nav-links {
+        display: flex;
       }
-      .nav-item.open .nav-drop{display:block;}
+
+      .nav-item:hover .nav-drop {
+        transform: none;
+        left: 0;
+        right: 0;
+      }
+
+      .nav-item.open .nav-drop {
+        transform: none;
+        left: 0;
+        right: 0;
+      }
+
+      .nav-links>a {
+        margin-top: 0 !important;
+        width: 100%;
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-item {
+        width: 100%;
+        position: relative;
+      }
+
+      .nav-item>a {
+        margin-top: 0 !important;
+        width: 100%;
+        padding: 14px 44px 14px 4px;
+        border-bottom: 1px solid var(--line);
+        box-sizing: border-box;
+      }
+
+      .nav-item>a::after {
+        display: none;
+      }
+
+      .nav-caret {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 44px;
+        height: 48px;
+        background: transparent;
+        border: none;
+        color: var(--ink-dim);
+        cursor: pointer;
+        transition: transform .2s ease, color .2s ease;
+      }
+
+      .nav-item.open .nav-caret {
+        transform: rotate(180deg);
+        color: var(--amber-soft);
+      }
+
+      .nav-drop {
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        min-width: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.03);
+        border: none;
+        border-radius: 10px;
+        box-shadow: none;
+        padding: 6px;
+        margin: 0 0 10px;
+      }
+
+      .nav-item.open .nav-drop {
+        display: block;
+      }
     }
 
     @media (max-width: 560px) {
+
       .nav-actions .icon-btn,
-      .nav-actions .btn-dark{display:none;}
-      .nav-actions{gap:8px;}
-      .nav-actions .btn-primary{padding:9px 14px;font-size:12.5px;}
-      .nav-inner{height:66px;}
-      .logo img{height:32px;}
+      .nav-actions .btn-dark {
+        display: none;
+      }
+
+      .nav-actions {
+        gap: 8px;
+      }
+
+      .nav-actions .btn-primary {
+        padding: 9px 14px;
+        font-size: 12.5px;
+      }
+
+      .nav-inner {
+        height: 66px;
+      }
+
+      .logo img {
+        height: 32px;
+      }
     }
 
 
@@ -872,6 +994,13 @@
       transform: translateY(-2px);
     }
 
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.3fr repeat(6, 1fr);
+      gap: 24px;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr 0.8fr 0.8fr 0.9fr;
+    }
+
     @media (max-width: 900px) {
       .foot-grid {
         grid-template-columns: 1fr 1fr;
@@ -1107,7 +1236,8 @@
         <a href="index.html#contact" style="margin-top:15px;">Contact</a>
       </div>
       <div class="nav-actions">
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation menu"
+          aria-expanded="false"><span></span><span></span><span></span></button>
         <div class="icon-btn">⌕</div>
         <a class="btn-dark"
           href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20to%20book%20or%20rent%20something.">Book
@@ -1121,13 +1251,15 @@
 
   <div class="wrap crumb"><a href="index.html">Home</a> · Portfolio</div>
 
-  <header class="wrap port-hero">
-    <span class="eyebrow">OUR WORK</span>
-    <h1>Weddings, launches, concerts & campaigns — <span class="grad">shot, staged and delivered by one crew.</span>
-    </h1>
-    <p class="lede">A running record of what we've covered across Abuja — filter by photography, videography, events,
-      commercials, branding or livestreams, or browse everything at once.</p>
-  </header>
+  <div class="em-hero-text">
+    <header class="wrap port-hero">
+      <span class="eyebrow">OUR WORK</span>
+      <h1>Weddings, launches, concerts & campaigns <span class="grad">shot, staged and delivered by one crew.</span>
+      </h1>
+      <p class="lede">A running record of what we've covered across Abuja — filter by photography, videography, events,
+        commercials, branding or livestreams, or browse everything at once.</p>
+    </header>
+  </div>
 
   <!-- PORTFOLIO GALLERY -->
   <section class="wrap" id="work">
@@ -1136,7 +1268,6 @@
         <span class="sec-eyebrow">BROWSE BY CATEGORY</span>
         <h2>Every project, sorted</h2>
       </div>
-      <p>28 projects and counting — new work is added as it's delivered.</p>
     </div>
 
     <div class="svc-tabs" id="portTabs">
@@ -1364,7 +1495,8 @@
 
       <div class="gal-card reveal tilt" data-cat="events">
         <div class="gal-glow"></div>
-        <img src="https://images.unsplash.com/photo-1519167758481-83f29c1fe8ac?w=500&h=620&fit=crop&auto=format&q=80"
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZmOW3HOn-V_wrCEIpjKpA9EhN266sLFQz7Mm1Pz-SbQ&s=10"
           alt="Wedding reception decor" loading="lazy">
         <div class="gal-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
             stroke-linecap="round" stroke-linejoin="round">
@@ -1522,8 +1654,7 @@
           alt="Concert livestream production" loading="lazy">
         <div class="gal-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
             stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M4.9 19.1a10 10 0 0 1 0-14.2M8 16a5 5 0 0 1 0-8M19.1 4.9a10 10 0 0 1 0 14.2M16 8a5 5 0 0 1 0 8" />
+            <path d="M4.9 19.1a10 10 0 0 1 0-14.2M8 16a5 5 0 0 1 0-8M19.1 4.9a10 10 0 0 1 0 14.2M16 8a5 5 0 0 1 0 8" />
             <circle cx="12" cy="12" r="1.6" />
           </svg></div>
         <div class="gal-info"><span>Livestream · Concert</span>
@@ -1534,12 +1665,12 @@
 
       <div class="gal-card reveal tilt" data-cat="livestreams">
         <div class="gal-glow"></div>
-        <img src="https://images.unsplash.com/photo-1560439514-07d6d5854ff9?w=500&h=620&fit=crop&auto=format&q=80"
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRJiPorCP8gmRQdVUN2AfocYExB-oKA53bV01FhoM9bA&s=10"
           alt="Corporate AGM livestream" loading="lazy">
         <div class="gal-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
             stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M4.9 19.1a10 10 0 0 1 0-14.2M8 16a5 5 0 0 1 0-8M19.1 4.9a10 10 0 0 1 0 14.2M16 8a5 5 0 0 1 0 8" />
+            <path d="M4.9 19.1a10 10 0 0 1 0-14.2M8 16a5 5 0 0 1 0-8M19.1 4.9a10 10 0 0 1 0 14.2M16 8a5 5 0 0 1 0 8" />
             <circle cx="12" cy="12" r="1.6" />
           </svg></div>
         <div class="gal-info"><span>Livestream · Corporate</span>
@@ -1554,8 +1685,7 @@
           alt="Product launch livestream" loading="lazy">
         <div class="gal-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
             stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M4.9 19.1a10 10 0 0 1 0-14.2M8 16a5 5 0 0 1 0-8M19.1 4.9a10 10 0 0 1 0 14.2M16 8a5 5 0 0 1 0 8" />
+            <path d="M4.9 19.1a10 10 0 0 1 0-14.2M8 16a5 5 0 0 1 0-8M19.1 4.9a10 10 0 0 1 0 14.2M16 8a5 5 0 0 1 0 8" />
             <circle cx="12" cy="12" r="1.6" />
           </svg></div>
         <div class="gal-info"><span>Livestream · Launch</span>
@@ -1570,8 +1700,7 @@
           alt="Award ceremony livestream" loading="lazy">
         <div class="gal-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
             stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M4.9 19.1a10 10 0 0 1 0-14.2M8 16a5 5 0 0 1 0-8M19.1 4.9a10 10 0 0 1 0 14.2M16 8a5 5 0 0 1 0 8" />
+            <path d="M4.9 19.1a10 10 0 0 1 0-14.2M8 16a5 5 0 0 1 0-8M19.1 4.9a10 10 0 0 1 0 14.2M16 8a5 5 0 0 1 0 8" />
             <circle cx="12" cy="12" r="1.6" />
           </svg></div>
         <div class="gal-info"><span>Livestream · Awards</span>
@@ -1619,7 +1748,7 @@
             <a class="logo" href="index.html" style="margin-bottom:16px;">
               <img src="images/kadis eventmedia.png" alt="Kadis" style="height:38px; width:auto; border-radius:8px;">
             </a>
-            <p style="color:var(--ink-dim); font-size:13px; line-height:1.7; max-width:260px;">Kadis Events
+            <p style="color:var(--ink-dim); font-size:13px; line-height:1.7; max-width:260px;">Kadis Events,
               Media & Rentals production, coverage and equipment rentals for weddings, corporates, conferences and
               concerts across Abuja.</p>
           </div>
@@ -1634,6 +1763,11 @@
             <a href="media.html#advert-jingles">Advert/Jingles</a>
             <a href="media.html#podcast-production">Podcast Production</a>
             <a href="media.html#livestreaming">Livestreaming</a>
+            <a href="media.html#digital-marketing">Digital Marketing</a>
+            <a href="media.html#digital-printing">Digital Printing</a>
+            <a href="media.html#leads-generation">Leads Generation</a>
+            <a href="media.html#website-designing">Website Designing</a>
+            <a href="media.html#social-media-ads">Social Media Ads</a>
           </div>
           <div class="foot-col">
             <h5>Events</h5>
@@ -1649,14 +1783,36 @@
           </div>
           <div class="foot-col">
             <h5>Rentals</h5>
-            <a href="index.html#rentals">Camera</a>
-            <a href="index.html#rentals">Lenses</a>
-            <a href="index.html#rentals">Lighting</a>
-            <a href="index.html#rentals">Audio & PA</a>
-            <a href="index.html#rentals">Projectors & Screens</a>
+
+            <a href="index.html#rentals">JBL 15-Inch Double Speakers</a>
+            <a href="index.html#rentals">Power Amplifiers</a>
+            <a href="index.html#rentals">Mixers</a>
+            <a href="index.html#rentals">Public Address Systems</a>
+            <a href="index.html#rentals">Mobile Speakers</a>
+            <a href="index.html#rentals">Microphones</a>
             <a href="index.html#rentals">LED Screens</a>
-            <a href="index.html#rentals">Staging</a>
-            <a href="index.html#rentals">Phone Booths</a>
+            <a href="index.html#rentals">Projectors</a>
+            <a href="index.html#rentals">Laptops</a>
+            <a href="index.html#rentals">Paper Printers</a>
+            <a href="index.html#rentals">Photo/Passport Printers</a>
+            <a href="index.html#rentals">Photocopiers</a>
+            <a href="index.html#rentals">Scanners</a>
+            <a href="index.html#rentals">Photo Cameras</a>
+            <a href="index.html#rentals">Video Cameras</a>
+            <a href="index.html#rentals">Mobile Power Tanks</a>
+            <a href="index.html#rentals">Ring Lights</a>
+            <a href="index.html#rentals">Tripods</a>
+            <a href="index.html#rentals">Drones</a>
+            <a href="index.html#rentals">Delivery Bikes</a>
+            <a href="index.html#rentals">Welding Machines</a>
+            <a href="index.html#rentals">Drilling Machines</a>
+            <a href="index.html#rentals">ICT Engineering Tools</a>
+            <a href="index.html#rentals">Satellite Trackers & Finders</a>
+            <a href="index.html#rentals">Walkie Talkies</a>
+            <a href="index.html#rentals">Garretts</a>
+            <a href="index.html#rentals">CCTV Cameras</a>
+            <a href="index.html#rentals">Routers & Switches</a>
+
             <a href="package.html">Event Packages</a>
           </div>
           <div class="foot-col">
@@ -1685,12 +1841,12 @@
             <a href="blog.html#post-live-streaming-broadcasting">Live Streaming & Broadcasting</a>
             <a href="blog.html#post-event-photography-videography">Event Photography & Videography</a>
             <a href="blog.html#post-dj-equipment-entertainment-rentals">DJ Equipment & Entertainment Rentals</a>
-              <a href="blog.html#post-mc-compere-event-hosting">MC, Compere & Event Hosting</a>
+            <a href="blog.html#post-mc-compere-event-hosting">MC, Compere & Event Hosting</a>
             <a href="blog.html#post-cctv-cameras-event-security">CCTV, Cameras & Event Security</a>
             <a href="blog.html#post-power-backup-solutions-events">Power & Backup Solutions for Events</a>
             <a href="blog.html#post-event-planning-management">Event Planning & Management</a>
             <a href="blog.html#post-ict-digital-solutions-events">ICT & Digital Solutions for Events</a>
-            <a href="blog.html#post-kadis-events-rental-guides">KADIS Events & Rental Guides</a>
+            <a href="blog.html#post-kadis-events-rental-guides">KADIS Events, Media & Rental Guides</a>
           </div>
         </div>
       </div>
@@ -1771,54 +1927,54 @@
 
 
   <script>
-  (function () {
-    var nav = document.querySelector('nav');
-    if (!nav) return;
-    var toggle = nav.querySelector('.nav-toggle');
-    var items = nav.querySelectorAll('.nav-item');
+    (function () {
+      var nav = document.querySelector('nav');
+      if (!nav) return;
+      var toggle = nav.querySelector('.nav-toggle');
+      var items = nav.querySelectorAll('.nav-item');
 
-    items.forEach(function (item) {
-      var drop = item.querySelector('.nav-drop');
-      if (!drop) return;
-      var caret = document.createElement('button');
-      caret.type = 'button';
-      caret.className = 'nav-caret';
-      caret.setAttribute('aria-label', 'Toggle submenu');
-      caret.innerHTML = '&#9662;';
-      item.appendChild(caret);
-      caret.addEventListener('click', function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-        var isOpen = item.classList.contains('open');
-        items.forEach(function (i) { i.classList.remove('open'); });
-        if (!isOpen) item.classList.add('open');
+      items.forEach(function (item) {
+        var drop = item.querySelector('.nav-drop');
+        if (!drop) return;
+        var caret = document.createElement('button');
+        caret.type = 'button';
+        caret.className = 'nav-caret';
+        caret.setAttribute('aria-label', 'Toggle submenu');
+        caret.innerHTML = '&#9662;';
+        item.appendChild(caret);
+        caret.addEventListener('click', function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          var isOpen = item.classList.contains('open');
+          items.forEach(function (i) { i.classList.remove('open'); });
+          if (!isOpen) item.classList.add('open');
+        });
       });
-    });
 
-    if (toggle) {
-      toggle.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('menu-open');
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        if (!isOpen) items.forEach(function (i) { i.classList.remove('open'); });
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          var isOpen = nav.classList.toggle('menu-open');
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          if (!isOpen) items.forEach(function (i) { i.classList.remove('open'); });
+        });
+      }
+
+      document.addEventListener('click', function (e) {
+        if (nav.classList.contains('menu-open') && !nav.contains(e.target)) {
+          nav.classList.remove('menu-open');
+          items.forEach(function (i) { i.classList.remove('open'); });
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
       });
-    }
 
-    document.addEventListener('click', function (e) {
-      if (nav.classList.contains('menu-open') && !nav.contains(e.target)) {
-        nav.classList.remove('menu-open');
-        items.forEach(function (i) { i.classList.remove('open'); });
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 1100 && nav.classList.contains('menu-open')) {
-        nav.classList.remove('menu-open');
-        items.forEach(function (i) { i.classList.remove('open'); });
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  })();
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1100 && nav.classList.contains('menu-open')) {
+          nav.classList.remove('menu-open');
+          items.forEach(function (i) { i.classList.remove('open'); });
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
   </script>
 
 </body>
