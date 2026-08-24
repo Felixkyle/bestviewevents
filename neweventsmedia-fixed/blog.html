@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Media, Events & Rental Guides | KADIS.COM.NG</title>
+    <meta name="description"
+        content="Guides on event equipment rental, media production, livestreaming, weddings, corporate events and more from Kadis Events Media & Rentals, Abuja.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0B0C0F;
+            --bg-2: #131519;
+            --bg-3: #1A1D22;
+            --bg-4: #20232A;
+            --ink: #EDEEEC;
+            --ink-dim: #9A9FA8;
+            --ink-dimmer: #5C616A;
+            --line: rgba(255, 255, 255, 0.07);
+            --line-bright: rgba(255, 255, 255, 0.13);
+            --amber: #D9772E;
+            --amber-deep: #B85F22;
+            --amber-soft: #E8A15E;
+            --moss: #A9B84C;
+            --wine: #C24D5C;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: rgb(43, 39, 33);
+            color: var(--ink);
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Sora', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        ::selection {
+            background: var(--amber-soft);
+            color: #111;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 15% 8%, rgba(217, 119, 46, 0.08), transparent 40%),
+                radial-gradient(circle at 85% 25%, rgba(194, 77, 92, 0.05), transparent 35%),
+                radial-gradient(circle at 50% 90%, rgba(169, 184, 76, 0.045), transparent 45%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wrap {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .8s cubic-bezier(.16, .8, .24, 1), transform .8s cubic-bezier(.16, .8, .24, 1);
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+
+            * {
+                animation-duration: .01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        .topbar {
+            background: var(--bg-2);
+            border-bottom: 1px solid var(--line);
+            font-size: 12.5px;
+            color: var(--ink-dim);
+        }
+
+        .topbar .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 38px;
+            flex-wrap: wrap;
+        }
+
+        .topbar .dot {
+            color: var(--amber-soft);
+            margin-right: 6px;
+        }
+
+        .topbar-right {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .topbar-right span.mono {
+            color: var(--amber-soft);
+            font-weight: 700;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(11, 12, 15, 0.82);
+            backdrop-filter: blur(16px) saturate(140%);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 78px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Sora';
+            font-weight: 800;
+            font-size: 22px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--ink-dim);
+        }
+
+        .nav-links a {
+            padding: 6px 0;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--line-bright);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink-dim);
+            transition: all .2s;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .icon-btn:hover {
+            border-color: var(--amber);
+            color: var(--amber-soft);
+        }
+
+        .btn-primary {
+            background: var(--amber);
+            color: #0B0C0F;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 11px 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 22px rgba(217, 119, 46, 0.22);
+            transition: transform .25s cubic-bezier(.16, .8, .24, 1), box-shadow .25s, background .25s;
+            white-space: nowrap;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: var(--amber-soft);
+            box-shadow: 0 14px 30px rgba(217, 119, 46, 0.3);
+        }
+
+        .btn-ghost {
+            border: 1px solid var(--line-bright);
+            color: var(--ink);
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 13px 22px;
+            border-radius: 10px;
+            transition: all .25s cubic-bezier(.16, .8, .24, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--amber);
+            background: rgba(217, 119, 46, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .btn-dark {
+            background: var(--bg-4);
+            color: var(--ink);
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 11px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--line-bright);
+            transition: all .25s cubic-bezier(.16, .8, .24, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-dark:hover {
+            border-color: var(--amber);
+            color: var(--amber-soft);
+            transform: translateY(-2px);
+        }
+
+            .nav-toggle{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:40px;height:40px;min-width:40px;border-radius:10px;border:1px solid var(--line-bright);background:transparent;cursor:pointer;padding:0;flex-shrink:0;}
+    .nav-toggle span{display:block;width:20px;height:2px;background:var(--ink);transition:transform .25s ease,opacity .2s ease;}
+    nav.menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    nav.menu-open .nav-toggle span:nth-child(2){opacity:0;}
+    nav.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .nav-caret{display:none;}
+
+    @media (max-width: 1100px) {
+      .nav-toggle{display:flex;}
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        background:var(--bg-3);
+        border-bottom:1px solid var(--line-bright);
+        max-height:calc(100vh - 78px);
+        overflow-y:auto;
+        padding:6px 20px 24px;
+        box-shadow:0 24px 40px rgba(0,0,0,.45);
+      }
+      nav.menu-open .nav-links{display:flex;}
+      .nav-item:hover .nav-drop{transform:none;left:0;right:0;}
+      .nav-item.open .nav-drop{transform:none;left:0;right:0;}
+      .nav-links > a{margin-top:0 !important;width:100%;padding:14px 4px;border-bottom:1px solid var(--line);}
+      .nav-item{width:100%;position:relative;}
+      .nav-item > a{margin-top:0 !important;width:100%;padding:14px 44px 14px 4px;border-bottom:1px solid var(--line);box-sizing:border-box;}
+      .nav-item > a::after{display:none;}
+      .nav-caret{
+        display:flex;align-items:center;justify-content:center;
+        position:absolute;right:0;top:0;width:44px;height:48px;
+        background:transparent;border:none;color:var(--ink-dim);cursor:pointer;
+        transition:transform .2s ease,color .2s ease;
+      }
+      .nav-item.open .nav-caret{transform:rotate(180deg);color:var(--amber-soft);}
+      .nav-drop{
+        position:static;display:none;opacity:1;visibility:visible;transform:none;
+        min-width:0;width:100%;background:rgba(255,255,255,0.03);
+        border:none;border-radius:10px;box-shadow:none;padding:6px;margin:0 0 10px;
+      }
+      .nav-item.open .nav-drop{display:block;}
+    }
+
+    @media (max-width: 560px) {
+      .nav-actions .icon-btn,
+      .nav-actions .btn-dark{display:none;}
+      .nav-actions{gap:8px;}
+      .nav-actions .btn-primary{padding:9px 14px;font-size:12.5px;}
+      .nav-inner{height:66px;}
+      .logo img{height:32px;}
+    }
+
+
+        .crumb {
+            padding: 18px 0 0;
+            font-size: 12.5px;
+            color: var(--ink-dimmer);
+        }
+
+        /* ---------- Blog hero ---------- */
+        .blog-hero {
+            padding: 44px 0 40px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Space Mono';
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            color: var(--amber-soft);
+            background: rgba(217, 119, 46, 0.08);
+            border: 1px solid rgba(217, 119, 46, 0.25);
+            padding: 7px 14px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        .eyebrow::before {
+            content: '●';
+            color: var(--moss);
+            font-size: 8px;
+        }
+
+        .blog-hero h1 {
+            font-size: 44px;
+            line-height: 1.08;
+            font-weight: 800;
+            margin-bottom: 14px;
+            max-width: 720px;
+        }
+
+        .blog-hero h1 .grad {
+            background: linear-gradient(100deg, var(--amber) 10%, var(--wine) 90%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .blog-hero p.lede {
+            font-size: 16px;
+            color: var(--ink-dim);
+            max-width: 560px;
+            line-height: 1.65;
+        }
+
+        /* ---------- Index of categories ---------- */
+        .idx-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 32px;
+        }
+
+        .idx-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-2);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 14px 16px;
+            transition: all .22s cubic-bezier(.16, .8, .24, 1);
+        }
+
+        .idx-card:hover {
+            border-color: rgba(217, 119, 46, 0.32);
+            transform: translateY(-2px);
+        }
+
+        .idx-card .n {
+            font-family: 'Space Mono';
+            font-size: 11px;
+            color: var(--amber-soft);
+            flex-shrink: 0;
+            width: 22px;
+        }
+
+        .idx-card span.t {
+            font-size: 12.5px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 900px) {
+            .idx-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .idx-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        section {
+            padding: 0;
+        }
+
+        .sec-eyebrow {
+            font-family: 'Space Mono';
+            font-size: 12px;
+            color: var(--amber-soft);
+            letter-spacing: .08em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* ---------- Posts ---------- */
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 70px 0 0;
+        }
+
+        .post {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 44px;
+            align-items: center;
+            padding: 46px 0;
+            border-top: 1px solid var(--line);
+            scroll-margin-top: 96px;
+        }
+
+        .post:first-child {
+            border-top: none;
+        }
+
+        .post:nth-child(even) .post-media {
+            order: 2;
+        }
+
+        .post-media {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--line-bright);
+            aspect-ratio: 4/3;
+            position: relative;
+            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
+        }
+
+        .post-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .post-media .cat-chip {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            font-family: 'Space Mono';
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            background: rgba(11, 12, 15, 0.6);
+            backdrop-filter: blur(6px);
+            border: 1px solid var(--line-bright);
+            color: var(--amber-soft);
+            padding: 6px 12px;
+            border-radius: 100px;
+        }
+
+        .post-body .num {
+            font-family: 'Space Mono';
+            font-size: 11.5px;
+            color: var(--ink-dimmer);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .post-body h2 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            line-height: 1.18;
+        }
+
+        .post-body p {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+
+        .post-body p:last-of-type {
+            margin-bottom: 20px;
+        }
+
+        .post-cta {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--amber-soft);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap .2s;
+        }
+
+        .post-cta:hover {
+            gap: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .post {
+                grid-template-columns: 1fr;
+                gap: 22px;
+                padding: 36px 0;
+            }
+
+            .post:nth-child(even) .post-media {
+                order: 0;
+            }
+
+            .post-media {
+                aspect-ratio: 16/10;
+            }
+        }
+
+        /* ---------- CTA band ---------- */
+        .cta-band {
+            background: linear-gradient(120deg, rgba(217, 119, 46, 0.12), rgba(194, 77, 92, 0.06));
+            border: 1px solid rgba(217, 119, 46, 0.22);
+            border-radius: 24px;
+            padding: 52px;
+            text-align: center;
+            margin: 70px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-band h2 {
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+
+        .cta-band p {
+            color: var(--ink-dim);
+            margin-bottom: 26px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            background: var(--bg-2);
+        }
+
+        .foot-promo {
+            background: linear-gradient(115deg, rgba(217, 119, 46, 0.10), rgba(169, 184, 76, 0.04));
+            border-bottom: 1px solid var(--line);
+            padding: 22px 0;
+        }
+
+        .foot-promo .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .foot-promo p {
+            font-size: 13.5px;
+            color: var(--ink-dim);
+            max-width: 760px;
+            line-height: 1.7;
+        }
+
+        .foot-promo b {
+            color: var(--ink);
+        }
+
+        .foot-main {
+            padding: 50px 0 36px;
+        }
+
+        .foot-grid {
+            display: grid;
+            grid-template-columns: 1.4fr repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .foot-col h5 {
+            font-size: 12.5px;
+            color: var(--ink);
+            margin-bottom: 16px;
+            font-family: 'Space Mono';
+            letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+
+        .foot-col a {
+            display: block;
+            font-size: 13px;
+            color: var(--ink-dim);
+            margin-bottom: 10px;
+            transition: color .2s;
+        }
+
+        .foot-col a:hover {
+            color: var(--amber-soft);
+        }
+
+        .foot-bottom {
+            padding: 22px 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12.5px;
+            color: var(--ink-dimmer);
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-row a {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            border: 1px solid var(--line-bright);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: var(--ink-dim);
+            transition: all .2s;
+        }
+
+        .social-row a:hover {
+            border-color: var(--amber);
+            color: var(--amber-soft);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            .foot-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .wa-float {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            z-index: 70;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C4A);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+            font-size: 26px;
+            color: #fff;
+            transition: transform .25s cubic-bezier(.16, .8, .24, 1);
+        }
+
+        .wa-float:hover {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        <div class="wrap">
+            <div><span class="dot">●</span>Events & Media — book a shoot, a crew or gear, anywhere across Abuja</div>
+            <div class="topbar-right">
+                <span class="mono">KADIS EVENTS</span>
+                <a class="mono" href="tel:08061379390">📞 0806 137 9390</a>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="wrap nav-inner">
+            <a class="logo" href="index.html">
+                <img src="images/kadis eventmedia.png" alt="Kadis" style="height:38px; width:auto; border-radius:8px;">
+            </a>
+            <div class="nav-links">
+                <a href="media.html">Media</a>
+                <a href="event.html">Events</a>
+                <a href="index.html#rentals">Rentals</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="package.html">Packages</a>
+                <a href="index.html#about">About</a>
+                <a href="blog.html">Blog</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+                <div class="icon-btn">⌕</div>
+                <a class="btn-dark"
+                    href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20to%20book%20or%20rent%20something.">Book
+                    / Rent Now</a>
+                <a class="btn-primary"
+                    href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20a%20quote%20for%20media%2Fevents.">Request
+                    a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrap crumb"><a href="index.html">Home</a> · Blog</div>
+
+    <header class="wrap blog-hero">
+        <span class="eyebrow">KADIS BLOG</span>
+        <h1>Guides on media, events <span class="grad">and everything we rent out.</span></h1>
+        <p class="lede">Straight answers on equipment rental, event production and media coverage — written from
+            jobs we've actually run across Abuja, not generic advice.</p>
+
+        <div class="idx-grid">
+            <a class="idx-card reveal" href="#post-event-equipment-rental-abuja"><span class="n mono">01</span><span
+                    class="t">Event Equipment Rental in Abuja</span></a>
+            <a class="idx-card reveal" href="#post-audio-sound-system-rental"><span class="n mono">02</span><span
+                    class="t">Audio & Sound System Rental</span></a>
+            <a class="idx-card reveal" href="#post-led-screen-projector-rental"><span class="n mono">03</span><span
+                    class="t">LED Screen & Projector Rental</span></a>
+            <a class="idx-card reveal" href="#post-event-lighting-stage-production"><span class="n mono">04</span><span
+                    class="t">Event Lighting & Stage Production</span></a>
+            <a class="idx-card reveal" href="#post-corporate-event-conference-solutions"><span
+                    class="n mono">05</span><span class="t">Corporate Event & Conference Solutions</span></a>
+            <a class="idx-card reveal" href="#post-wedding-social-event-solutions"><span class="n mono">06</span><span
+                    class="t">Wedding & Social Event Solutions</span></a>
+            <a class="idx-card reveal" href="#post-media-production-coverage"><span class="n mono">07</span><span
+                    class="t">Media Production & Coverage</span></a>
+            <a class="idx-card reveal" href="#post-live-streaming-broadcasting"><span class="n mono">08</span><span
+                    class="t">Live Streaming & Broadcasting</span></a>
+            <a class="idx-card reveal" href="#post-event-photography-videography"><span class="n mono">09</span><span
+                    class="t">Event Photography & Videography</span></a>
+            <a class="idx-card reveal" href="#post-dj-equipment-entertainment-rentals"><span
+                    class="n mono">10</span><span class="t">DJ Equipment & Entertainment Rentals</span></a>
+            <a class="idx-card reveal" href="#post-cctv-cameras-event-security"><span class="n mono">11</span><span
+                    class="t">CCTV, Cameras & Event Security</span></a>
+            <a class="idx-card reveal" href="#post-power-backup-solutions-events"><span class="n mono">12</span><span
+                    class="t">Power & Backup Solutions for Events</span></a>
+            <a class="idx-card reveal" href="#post-event-planning-management"><span class="n mono">13</span><span
+                    class="t">Event Planning & Management</span></a>
+            <a class="idx-card reveal" href="#post-ict-digital-solutions-events"><span class="n mono">14</span><span
+                    class="t">ICT & Digital Solutions for Events</span></a>
+            <a class="idx-card reveal" href="#post-kadis-events-rental-guides"><span class="n mono">15</span><span
+                    class="t">KADIS Events & Rental Guides</span></a>
+            <a class="idx-card reveal" href="#post-mc-compere-event-hosting"><span class="n mono">16</span><span
+                    class="t">MC, Compere & Event Hosting</span></a>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <div class="post-list">
+
+            <!-- 01 -->
+            <article class="post reveal" id="post-event-equipment-rental-abuja">
+                <div class="post-media">
+                    <span class="cat-chip">Equipment Rental</span>
+                    <img src="https://images.unsplash.com/photo-1587090564077-c7b8f2f1249e?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Full event equipment package laid out for rental" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">01 — Event Equipment Rental in Abuja</span>
+                    <h2>What "renting equipment" should actually include</h2>
+                    <p>A rental quote that only lists the item is an incomplete quote. A camera without a spare battery,
+                        a
+                        speaker without the right cabling, or a screen without a stand all turn into problems on the
+                        day. Every
+                        piece we send out leaves with its accessories already attached — that's the difference between a
+                        rental
+                        and a bare box.</p>
+                    <p>We also test gear before it leaves the store, not after it comes back. For anything
+                        time-sensitive —
+                        a wedding, a launch, a conference — that check is the difference between a smooth event and a
+                        scramble
+                        for a replacement.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20check%20rental%20availability%20for%20some%20equipment.">Check
+                        equipment availability →</a>
+                </div>
+            </article>
+
+            <!-- 02 -->
+            <article class="post reveal" id="post-audio-sound-system-rental">
+                <div class="post-media">
+                    <span class="cat-chip">Audio & Sound</span>
+                    <img src="https://images.unsplash.com/photo-1603425013520-e0b30e6e37dc?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Audio and sound equipment set up for an event" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">02 — Audio & Sound System Rental</span>
+                    <h2>Picking the right sound system for your event size</h2>
+                    <p>A single mobile speaker is fine for a small gathering, but it will disappear in a hall built for
+                        300
+                        guests. The sizing question isn't just "how many people" — it's the shape of the room, whether
+                        it's
+                        indoor or outdoor, and whether there's a stage to reinforce.</p>
+                    <p>For anything with speeches, a toast, or a programme, a proper mixer and floor monitors matter as
+                        much
+                        as the main speakers — clean audio for the person holding the mic is what guests actually
+                        remember.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20PA%20system.">Ask
+                        about a PA system →</a>
+                </div>
+            </article>
+
+            <!-- 03 -->
+            <article class="post reveal" id="post-led-screen-projector-rental">
+                <div class="post-media">
+                    <span class="cat-chip">Screens & Display</span>
+                    <img src="https://images.unsplash.com/photo-1576990049702-8418081b420e?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="LED screen panels set up for an event" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">03 — LED Screen & Projector Rental</span>
+                    <h2>LED walls vs projector screens — which fits your venue</h2>
+                    <p>Projector screens are cost-effective and quick to set up for indoor rooms with controlled
+                        lighting —
+                        good for conferences, seminars and school events. LED screens hold up in daylight and outdoor
+                        venues,
+                        which makes them the better call for concerts, product launches and anything with a stage
+                        backdrop.</p>
+                    <p>The other factor is content: if you're switching between slides, a livestream feed and video
+                        clips in
+                        one session, tell us in advance so the right screen and switching setup is booked together.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20projector%2Fscreen.">Ask
+                        about screens →</a>
+                </div>
+            </article>
+
+            <!-- 04 -->
+            <article class="post reveal" id="post-event-lighting-stage-production">
+                <div class="post-media">
+                    <span class="cat-chip">Lighting & Stage</span>
+                    <img src="https://images.unsplash.com/photo-1545242640-7c9e9cc07d23?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Event lighting equipment and stands" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">04 — Event Lighting & Stage Production</span>
+                    <h2>Lighting and stage builds that hold up for a full event day</h2>
+                    <p>Stage lighting has two separate jobs — making the stage readable on camera, and setting the mood
+                        for
+                        the room. Doing both well usually means separating key lighting for speakers or performers from
+                        ambient
+                        or colour lighting for the crowd, rather than relying on one wash of light for everything.</p>
+                    <p>For raised stages, decking and trussing, we check the venue's floor and ceiling height before the
+                        build
+                        — it decides what rigging is possible and keeps the whole structure stable for the day.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20event%20production.">Ask about stage &
+                        lighting →</a>
+                </div>
+            </article>
+
+            <!-- 05 -->
+            <article class="post reveal" id="post-corporate-event-conference-solutions">
+                <div class="post-media">
+                    <span class="cat-chip">Corporate</span>
+                    <img src="https://images.unsplash.com/photo-1558008258-3256797b43f3?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Conference audience in a hall" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">05 — Corporate Event & Conference Solutions</span>
+                    <h2>Running a conference or AGM without the logistics headache</h2>
+                    <p>Multi-day conferences fail on logistics before they fail on content — registration bottlenecks, a
+                        microphone that isn't ready for the next speaker, a screen that doesn't match the laptop being
+                        handed
+                        over. Most of this is solved by walking the full agenda before the day and mapping equipment to
+                        each
+                        segment.</p>
+                    <p>A single point of contact for AV, staging and coverage means one team is accountable for the
+                        whole
+                        run of show — not three vendors each covering their own piece.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20help%20with%20a%20corporate%20event%2Fconference.">Plan
+                        your conference →</a>
+                </div>
+            </article>
+
+            <!-- 06 -->
+            <article class="post reveal" id="post-wedding-social-event-solutions">
+                <div class="post-media">
+                    <span class="cat-chip">Weddings & Social</span>
+                    <img src="https://images.unsplash.com/photo-1737682599438-319b61711b5f?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Wedding reception table setting" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">06 — Wedding & Social Event Solutions</span>
+                    <h2>Planning a wedding timeline your vendors can actually follow</h2>
+                    <p>A wedding has more moving parts than almost any other event — décor, catering, sound, photography
+                        and
+                        video all need to land in the same window. The timeline is what keeps them from colliding, so
+                        every
+                        vendor should be working from the same version of it, not their own estimate.</p>
+                    <p>Build in buffer time around entrances, speeches and the couple's exit — these are the moments
+                        most
+                        likely to run long, and the ones your photos and video need the most.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20book%20a%20wedding.">Plan
+                        your wedding →</a>
+                </div>
+            </article>
+
+            <!-- 07 -->
+            <article class="post reveal" id="post-media-production-coverage">
+                <div class="post-media">
+                    <span class="cat-chip">Media Production</span>
+                    <img src="https://images.unsplash.com/photo-1619479674806-8f6e70be07da?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Video production equipment and camera rig" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">07 — Media Production & Coverage</span>
+                    <h2>What full media coverage actually covers on the day</h2>
+                    <p>"Coverage" means different things depending on the event — a wedding needs continuous, unscripted
+                        capture, while a brand film needs a shot list and planned setups. Confusing the two is why some
+                        coverage
+                        feels incomplete afterward: the crew showed up, but for the wrong kind of shoot.</p>
+                    <p>Before booking, it helps to name the final use — social clips, a highlight reel, a full-length
+                        edit —
+                        since that decides how many crew members and how much editing time the job actually needs.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20media%20coverage%20for%20my%20event.">Book
+                        media coverage →</a>
+                </div>
+            </article>
+
+            <!-- 08 -->
+            <article class="post reveal" id="post-live-streaming-broadcasting">
+                <div class="post-media">
+                    <span class="cat-chip">Live Streaming</span>
+                    <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Concert stage lighting during a live event" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">08 — Live Streaming & Broadcasting</span>
+                    <h2>Streaming your event without losing the room to a bad feed</h2>
+                    <p>A livestream is only as reliable as its weakest link — usually the internet connection, not the
+                        camera.
+                        For anything that can't afford to drop, we run a backup encoder and a secondary connection so
+                        one
+                        failure doesn't take the whole feed down.</p>
+                    <p>Multi-camera streams also need a dedicated operator switching between angles in real time — a
+                        single
+                        static camera reads as an afterthought, especially for conferences and product launches.</p>
+                    <a class="post-cta" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20livestreaming.">Book
+                        livestream coverage →</a>
+                </div>
+            </article>
+
+            <!-- 09 -->
+            <article class="post reveal" id="post-event-photography-videography">
+                <div class="post-media">
+                    <span class="cat-chip">Photo & Video</span>
+                    <img src="https://images.unsplash.com/photo-1580852300513-9b50125bf293?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Camera lenses laid out for a photography shoot" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">09 — Event Photography & Videography</span>
+                    <h2>How many photographers and videographers does your event need</h2>
+                    <p>One photographer can cover a small gathering, but any event with simultaneous moments — a
+                        wedding's
+                        bride and groom prep, a conference's main stage and breakout rooms — needs more than one person
+                        to catch
+                        all of it. Two photographers and one videographer is a common baseline for full-day events.</p>
+                    <p>Ask about delivery timelines up front too — a same-week gallery needs a different editing plan
+                        than a
+                        full cinematic wedding film delivered a month later.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20event%20photography%2Fvideo.">Book a
+                        shoot →</a>
+                </div>
+            </article>
+
+            <!-- 10 -->
+            <article class="post reveal" id="post-dj-equipment-entertainment-rentals">
+                <div class="post-media">
+                    <span class="cat-chip">DJ & Entertainment</span>
+                    <img src="https://images.unsplash.com/photo-1629327896333-7ecec1515ae5?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Microphones and entertainment audio gear" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">10 — DJ Equipment & Entertainment Rentals</span>
+                    <h2>Setting up sound and entertainment gear guests actually enjoy</h2>
+                    <p>DJ and entertainment setups live or die on placement, not just power. Speakers aimed straight at
+                        a
+                        dance floor can overwhelm nearby seating, while poor monitor placement makes it hard for a DJ or
+                        MC to
+                        hear themselves over the mix.</p>
+                    <p>If your event has both a dinner segment and a dance segment, plan for two distinct sound profiles
+                        —
+                        quieter background levels early, and a proper system once the floor opens.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20DJ%2Fentertainment%20equipment.">Ask
+                        about entertainment gear →</a>
+                </div>
+            </article>
+
+            <!-- 11 -->
+            <article class="post reveal" id="post-cctv-cameras-event-security">
+                <div class="post-media">
+                    <span class="cat-chip">Security & Monitoring</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNNTo9a7UjNXSOjsrDDwqNB4pVc4wBBdQbItbV-_6gOA&s"
+                        alt="CCTV camera set up for event monitoring" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">11 — CCTV, Cameras & Event Security</span>
+                    <h2>Why larger events need CCTV monitoring, not just security staff</h2>
+                    <p>Security personnel cover what's in front of them; a monitored camera feed covers what isn't. For
+                        multi-entrance venues, exhibitions and anything with valuable equipment on site, a CCTV setup
+                        gives
+                        organisers one screen showing every access point at once, rather than relying on radio check-ins
+                        alone.</p>
+                    <p>It's a small addition to an event budget that pays for itself the moment there's a dispute to
+                        review
+                        or an incident to trace back.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20CCTV%20cameras%20for%20event%20monitoring.">Ask
+                        about CCTV for events →</a>
+                </div>
+            </article>
+
+            <!-- 12 -->
+            <article class="post reveal" id="post-power-backup-solutions-events">
+                <div class="post-media">
+                    <span class="cat-chip">Power & Backup</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnbBMwzWsNd9320MdbNe7MJkH4WG9EO_yFhSrcRlQftQ&s=10"
+                        alt="Generator and power backup equipment for events" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">12 — Power & Backup Solutions for Events</span>
+                    <h2>Power planning so your event never goes dark</h2>
+                    <p>Sound systems, screens, lighting and cameras all draw from the same source, and venue power alone
+                        rarely covers everything reliably. A sized-up generator with a standby check before doors open
+                        is
+                        standard for anything beyond a small indoor gathering.</p>
+                    <p>For events that truly can't afford a gap — a livestream, a wedding reception, a stage performance
+                        — a
+                        backup power tank on standby covers the seconds it takes a generator to kick back in.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20generator%2Fpower%20solution.">Ask
+                        about power solutions →</a>
+                </div>
+            </article>
+
+            <!-- 13 -->
+            <article class="post reveal" id="post-event-planning-management">
+                <div class="post-media">
+                    <span class="cat-chip">Planning & Management</span>
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Event planning meeting around a table" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">13 — Event Planning & Management</span>
+                    <h2>What a run-of-show is, and why every event needs one</h2>
+                    <p>A run-of-show is a minute-by-minute document listing every segment of an event and who owns it —
+                        when the doors open, when the first speaker takes the stage, when the meal is served. Without
+                        one,
+                        coordination happens by guesswork on the day, which is where delays start.</p>
+                    <p>It doesn't need to be complicated — a shared document that every vendor has seen in advance
+                        solves
+                        most of the coordination problems that show up on event day.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20help%20planning%20my%20event.">Start
+                        planning your event →</a>
+                </div>
+            </article>
+
+            <!-- 14 -->
+            <article class="post reveal" id="post-ict-digital-solutions-events">
+                <div class="post-media">
+                    <span class="cat-chip">ICT & Digital</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQssuZCGSvVd6s_7oplN6TF9XkvLrabaCezz1g2qFg01w&s=10"
+                        alt="ICT engineering and networking tools" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">14 — ICT & Digital Solutions for Events</span>
+                    <h2>The tech behind registration desks, Wi-Fi and event apps</h2>
+                    <p>Most digital friction at events comes down to network capacity — a registration desk running on a
+                        shared hotspot, or Wi-Fi that collapses once 200 guests connect at once. Sizing the network to
+                        the
+                        crowd, with routers and switches to match, solves this before it becomes visible to attendees.
+                    </p>
+                    <p>For conferences with digital registration, QR check-in or live polling, test the full flow
+                        on-site
+                        before doors open — not just on a desk in the office the day before.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20ICT%2Fdigital%20support%20for%20an%20event.">Ask
+                        about ICT support →</a>
+                </div>
+            </article>
+
+            <!-- 15 -->
+            <article class="post reveal" id="post-kadis-events-rental-guides">
+                <div class="post-media">
+                    <span class="cat-chip">Kadis Guides</span>
+                    <img src="https://images.unsplash.com/photo-1515169067868-5387ec356754?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="Event coordination team working together" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">15 — KADIS Events & Rental Guides</span>
+                    <h2>How a Kadis booking runs, from enquiry to delivered files</h2>
+                    <p>Every booking starts the same way — a message on WhatsApp describing the event, date and what's
+                        needed. From there we scope the crew and equipment, send a quote, and confirm the booking once
+                        you're
+                        happy with it. Nothing is finalised until the quote is agreed.</p>
+                    <p>On the day, our own crew runs on our own tested equipment — no last-minute freelancers or
+                        borrowed
+                        gear. Edited files or rented equipment returns are handled on the timeline agreed at booking,
+                        with one
+                        team accountable throughout.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20to%20know%20how%20booking%20works.">See
+                        how booking works →</a>
+                </div>
+            </article>
+
+            <!-- 16 -->
+            <article class="post reveal" id="post-mc-compere-event-hosting">
+                <div class="post-media">
+                    <span class="cat-chip">Events</span>
+                    <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop&auto=format&q=80"
+                        alt="MC hosting on stage with microphone at an event" loading="lazy">
+                </div>
+                <div class="post-body">
+                    <span class="num mono">16 — MC, Compere & Event Hosting</span>
+                    <h2>MC, Compere & Event Hosting services</h2>
+                    <p>A good MC keeps a programme on time, on tone and on script — whether that's a wedding reception,
+                        a
+                        corporate AGM, an award night or a product launch. We supply experienced hosts and compères who
+                        work from
+                        an agreed run-of-show, adapt to the room in real time, and hand off cleanly between segments,
+                        performers
+                        and speakers.</p>
+                    <p>Hosting is paired with our own PA system and wireless microphones, so sound is never a separate
+                        problem
+                        to solve on the day. Book hosting on its own, or bundle it with our DJ, sound and stage
+                        production
+                        services for one crew covering the whole event.</p>
+                    <a class="post-cta"
+                        href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20to%20book%20an%20MC%2FCompere%20for%20my%20event.">Book
+                        an MC or compère →</a>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="cta-band reveal">
+            <h2>Have an event that needs covering, staging or equipping?</h2>
+            <p>Tell us the date, the occasion and what you need, and we'll get a crew, a quote or a gear list moving
+                toward you.</p>
+            <div class="cta-buttons">
+                <a class="btn-primary"
+                    href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20a%20quote%20for%20media%2Fevents.">Request
+                    a Quote →</a>
+                <a class="btn-ghost" href="index.html#rentals">Browse Equipment Rentals</a>
+                <a class="btn-dark" href="tel:08061379390">Call 0806 137 9390</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="foot-promo">
+            <div class="wrap">
+                <p><b>Ready to book?</b> — reach us by phone or WhatsApp for a quote on media, event production or
+                    equipment rentals, anywhere within Abuja and 4 surrounding states.</p>
+                <a class="btn-primary" href="https://wa.me/2348061379390">Book Now →</a>
+            </div>
+        </div>
+
+        <div class="wrap">
+            <div class="foot-main">
+                <div class="foot-grid">
+                    <div class="foot-col">
+                        <a class="logo" href="index.html" style="margin-bottom:16px;">
+                            <img src="images/kadis eventmedia.png" alt="Kadis"
+                                style="height:38px; width:auto; border-radius:8px;">
+                        </a>
+                        <p style="color:var(--ink-dim); font-size:13px; line-height:1.7; max-width:260px;">Kadis Events
+                            Media & Rentals production, coverage and equipment rentals for weddings, corporates,
+                            conferences and
+                            concerts across Abuja.</p>
+                    </div>
+                    <div class="foot-col">
+                        <h5>Media</h5>
+                        <a href="media.html#photography">Photography</a>
+                        <a href="media.html#videography">Videography</a>
+                        <a href="media.html#video-production">Video Production</a>
+                        <a href="media.html#video-editing">Video Editing</a>
+                        <a href="media.html#graphics-design">Graphics & Branding</a>
+                        <a href="media.html#motion-graphics-animation">Motion Graphics & Animation</a>
+                        <a href="media.html#advert-jingles">Advert/Jingles</a>
+                        <a href="media.html#podcast-production">Podcast Production</a>
+                        <a href="media.html#livestreaming">Livestreaming</a>
+                    </div>
+                    <div class="foot-col">
+                        <h5>Events</h5>
+                        <a href="event.html##event-planning-management">Event Planning</a>
+                        <a href="event.html#conferences-summits">Corporate Events</a>
+                        <a href="event.html#conferences-summits">Conferences</a>
+                        <a href="event.html#weddings">Weddings</a>
+                        <a href="event.html#concerts-shows">Concert & Shows</a>
+                        <a href="event.html#product-launches">Product Launches</a>
+                        <a href="event.html#event-production">Event Production</a>
+                        <a href="event.html#event-decoration">Event Decoration</a>
+                    </div>
+                    <div class="foot-col">
+                        <h5>Rentals</h5>
+                        <a href="index.html#rentals">Camera</a>
+                        <a href="index.html#rentals">Lenses</a>
+                        <a href="index.html#rentals">Lighting</a>
+                        <a href="index.html#rentals">Audio & PA</a>
+                        <a href="index.html#rentals">Projectors & Screens</a>
+                        <a href="index.html#rentals">LED Screens</a>
+                        <a href="index.html#rentals">Staging</a>
+                        <a href="index.html#rentals">Phone Booths</a>
+                        <a href="package.html">Event Packages</a>
+                    </div>
+                    <div class="foot-col">
+                        <h5>Company</h5>
+                        <a href="#about">About Us</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="blog.html">Blog</a>
+                        <a href="#faqs">FAQs</a>
+                    </div>
+                    <div class="foot-col">
+                        <h5>Contact</h5>
+                        <a href="tel:08024207231">0802 420 7231</a>
+                        <a href="tel:08024207231">0806 137 9390 </a>
+                        <a href="#">Head of Service, Block B, 8th Floor, Federal Secretariat, CBD/Maitama, Abuja</a>
+                        <a href="mailto:kadisdigitals@gmail.com">kadisdigitals@gmail.com</a>
+                    </div>
+                    <div class="foot-col">
+                        <h5>Blog Categories</h5>
+                        <a href="blog.html#post-event-equipment-rental-abuja">Event Equipment Rental in Abuja</a>
+                        <a href="blog.html#post-audio-sound-system-rental">Audio & Sound System Rental</a>
+                        <a href="blog.html#post-led-screen-projector-rental">LED Screen & Projector Rental</a>
+                        <a href="blog.html#post-event-lighting-stage-production">Event Lighting & Stage Production</a>
+                        <a href="blog.html#post-corporate-event-conference-solutions">Corporate Event & Conference
+                            Solutions</a>
+                        <a href="blog.html#post-wedding-social-event-solutions">Wedding & Social Event Solutions</a>
+                        <a href="blog.html#post-media-production-coverage">Media Production & Coverage</a>
+                        <a href="blog.html#post-live-streaming-broadcasting">Live Streaming & Broadcasting</a>
+                        <a href="blog.html#post-event-photography-videography">Event Photography & Videography</a>
+                        <a href="blog.html#post-dj-equipment-entertainment-rentals">DJ Equipment & Entertainment
+                            Rentals</a>
+                        <a href="blog.html#post-mc-compere-event-hosting">MC, Compere & Event Hosting</a>
+                        <a href="blog.html#post-cctv-cameras-event-security">CCTV, Cameras & Event Security</a>
+                        <a href="blog.html#post-power-backup-solutions-events">Power & Backup Solutions for Events</a>
+                        <a href="blog.html#post-event-planning-management">Event Planning & Management</a>
+                        <a href="blog.html#post-ict-digital-solutions-events">ICT & Digital Solutions for Events</a>
+                        <a href="blog.html#post-kadis-events-rental-guides">KADIS Events & Rental Guides</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="foot-bottom">
+                <span>© 2020–2026 KADIS.COM.NG · All Rights Reserved</span>
+                <div class="social-row">
+                    <a href="https://web.facebook.com/kadisdigitals" aria-label="Facebook">f</a>
+                    <a href="https://www.instagram.com/kadisdigitals" aria-label="Instagram">ig</a>
+                    <a href="https://www.youtube.com/@kadisdigitals" aria-label="YouTube">yt</a>
+                    <a href="https://www.tiktok.com/@kadisdigitals" aria-label="TikTok">tt</a>
+                </div>
+                <span>Powered by E-Franky Global Services Limited</span>
+            </div>
+        </div>
+    </footer>
+
+    <a class="wa-float" href="https://wa.me/2348061379390" aria-label="Chat on WhatsApp">💬</a>
+
+    <script>
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const idx = Number(entry.target.dataset.idx || 0);
+                    entry.target.style.transitionDelay = Math.min(idx, 6) * 60 + 'ms';
+                    entry.target.classList.add('in-view');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach((el, i) => {
+            el.dataset.idx = i % 6;
+            io.observe(el);
+        });
+    </script>
+
+
+  <script>
+  (function () {
+    var nav = document.querySelector('nav');
+    if (!nav) return;
+    var toggle = nav.querySelector('.nav-toggle');
+    var items = nav.querySelectorAll('.nav-item');
+
+    items.forEach(function (item) {
+      var drop = item.querySelector('.nav-drop');
+      if (!drop) return;
+      var caret = document.createElement('button');
+      caret.type = 'button';
+      caret.className = 'nav-caret';
+      caret.setAttribute('aria-label', 'Toggle submenu');
+      caret.innerHTML = '&#9662;';
+      item.appendChild(caret);
+      caret.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var isOpen = item.classList.contains('open');
+        items.forEach(function (i) { i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('menu-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (!isOpen) items.forEach(function (i) { i.classList.remove('open'); });
+      });
+    }
+
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('menu-open') && !nav.contains(e.target)) {
+        nav.classList.remove('menu-open');
+        items.forEach(function (i) { i.classList.remove('open'); });
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1100 && nav.classList.contains('menu-open')) {
+        nav.classList.remove('menu-open');
+        items.forEach(function (i) { i.classList.remove('open'); });
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+  </script>
+
+</body>
+
+</html>

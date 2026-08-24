@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Services — Photography, Video, Design & Broadcast | KADIS.COM.NG</title>
+  <meta name="description"
+    content="Kadis Media Services: photography, videography, video production & editing, graphics design, social content, commercials, jingles, podcasts, livestreaming, drone coverage and MC/DJ — all in-house, across Abuja.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0C0F;
+      --bg-2: #131519;
+      --bg-3: #1A1D22;
+      --bg-4: #20232A;
+
+      --ink: #EDEEEC;
+      --ink-dim: #9A9FA8;
+      --ink-dimmer: #5C616A;
+      --line: rgba(255, 255, 255, 0.07);
+      --line-bright: rgba(255, 255, 255, 0.13);
+
+      --amber: #D9772E;
+      --amber-deep: #B85F22;
+      --amber-soft: #E8A15E;
+
+      --moss: #A9B84C;
+      --wine: #C24D5C;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: rgb(43, 39, 33);
+      color: var(--ink);
+      font-family: 'Manrope', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Sora', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .mono {
+      font-family: 'Space Mono', monospace;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    ::selection {
+      background: var(--amber-soft);
+      color: #111;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 8%, rgba(217, 119, 46, 0.08), transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(194, 77, 92, 0.05), transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(169, 184, 76, 0.045), transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .8s cubic-bezier(.16, .8, .24, 1), transform .8s cubic-bezier(.16, .8, .24, 1);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      * {
+        animation-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* anchor offset so the sticky nav never covers a jumped-to section */
+    [id] {
+      scroll-margin-top: 108px;
+    }
+
+    .topbar {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--line);
+      font-size: 12.5px;
+      color: var(--ink-dim);
+    }
+
+    .topbar .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 38px;
+      flex-wrap: wrap;
+    }
+
+    .topbar .dot {
+      color: var(--amber-soft);
+      margin-right: 6px;
+    }
+
+    .topbar-right {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .topbar-right span.mono {
+      color: var(--amber-soft);
+      font-weight: 700;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 12, 15, 0.82);
+      backdrop-filter: blur(16px) saturate(140%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Sora';
+      font-weight: 800;
+      font-size: 22px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink-dim);
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-item>a {
+      position: relative;
+      padding: 6px 0;
+      transition: color .2s;
+      display: block;
+      margin-top: 15px;
+    }
+
+    .nav-item>a:hover,
+    .nav-item:hover>a {
+      color: var(--ink);
+    }
+
+    .nav-item>a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--amber);
+      transition: width .3s cubic-bezier(.16, .8, .24, 1);
+    }
+
+    .nav-item:hover>a::after {
+      width: 100%;
+    }
+
+    .nav-item.current>a {
+      color: var(--amber-soft);
+    }
+
+    .nav-item.current>a::after {
+      width: 100%;
+    }
+
+    .nav-drop {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      min-width: 260px;
+      background: var(--bg-3);
+      border: 1px solid var(--line-bright);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .22s ease, transform .22s ease, visibility .22s;
+      z-index: 60;
+    }
+
+    .nav-item:hover .nav-drop {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(14px);
+    }
+
+    .nav-drop a {
+      display: block;
+      font-size: 13px;
+      color: var(--ink-dim);
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 8px;
+      transition: background .15s, color .15s;
+    }
+
+    .nav-drop a:hover {
+      background: rgba(217, 119, 46, 0.1);
+      color: var(--amber-soft);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--line-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-dim);
+      transition: all .2s;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--amber);
+      color: var(--amber-soft);
+    }
+
+    .btn-primary {
+      background: var(--amber);
+      color: #0B0C0F;
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 11px 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 22px rgba(217, 119, 46, 0.22);
+      transition: transform .25s cubic-bezier(.16, .8, .24, 1), box-shadow .25s, background .25s;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: var(--amber-soft);
+      box-shadow: 0 14px 30px rgba(217, 119, 46, 0.3);
+      color: rgb(243, 236, 236);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--line-bright);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 13px 22px;
+      border-radius: 10px;
+      transition: all .25s cubic-bezier(.16, .8, .24, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--amber);
+      background: rgba(217, 119, 46, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: var(--bg-4);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 11px 20px;
+      border-radius: 10px;
+      border: 1px solid var(--line-bright);
+      transition: all .25s cubic-bezier(.16, .8, .24, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-dark:hover {
+      border-color: var(--amber);
+      color: var(--amber-soft);
+      transform: translateY(-2px);
+    }
+
+        .nav-toggle{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:40px;height:40px;min-width:40px;border-radius:10px;border:1px solid var(--line-bright);background:transparent;cursor:pointer;padding:0;flex-shrink:0;}
+    .nav-toggle span{display:block;width:20px;height:2px;background:var(--ink);transition:transform .25s ease,opacity .2s ease;}
+    nav.menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    nav.menu-open .nav-toggle span:nth-child(2){opacity:0;}
+    nav.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .nav-caret{display:none;}
+
+    @media (max-width: 1100px) {
+      .nav-toggle{display:flex;}
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        background:var(--bg-3);
+        border-bottom:1px solid var(--line-bright);
+        max-height:calc(100vh - 78px);
+        overflow-y:auto;
+        padding:6px 20px 24px;
+        box-shadow:0 24px 40px rgba(0,0,0,.45);
+      }
+      nav.menu-open .nav-links{display:flex;}
+      .nav-item:hover .nav-drop{transform:none;left:0;right:0;}
+      .nav-item.open .nav-drop{transform:none;left:0;right:0;}
+      .nav-links > a{margin-top:0 !important;width:100%;padding:14px 4px;border-bottom:1px solid var(--line);}
+      .nav-item{width:100%;position:relative;}
+      .nav-item > a{margin-top:0 !important;width:100%;padding:14px 44px 14px 4px;border-bottom:1px solid var(--line);box-sizing:border-box;}
+      .nav-item > a::after{display:none;}
+      .nav-caret{
+        display:flex;align-items:center;justify-content:center;
+        position:absolute;right:0;top:0;width:44px;height:48px;
+        background:transparent;border:none;color:var(--ink-dim);cursor:pointer;
+        transition:transform .2s ease,color .2s ease;
+      }
+      .nav-item.open .nav-caret{transform:rotate(180deg);color:var(--amber-soft);}
+      .nav-drop{
+        position:static;display:none;opacity:1;visibility:visible;transform:none;
+        min-width:0;width:100%;background:rgba(255,255,255,0.03);
+        border:none;border-radius:10px;box-shadow:none;padding:6px;margin:0 0 10px;
+      }
+      .nav-item.open .nav-drop{display:block;}
+    }
+
+    @media (max-width: 560px) {
+      .nav-actions .icon-btn,
+      .nav-actions .btn-dark{display:none;}
+      .nav-actions{gap:8px;}
+      .nav-actions .btn-primary{padding:9px 14px;font-size:12.5px;}
+      .nav-inner{height:66px;}
+      .logo img{height:32px;}
+    }
+
+
+    .crumb {
+      padding: 18px 0 0;
+      font-size: 12.5px;
+      color: var(--ink-dimmer);
+    }
+
+    .crumb a:hover {
+      color: var(--amber-soft);
+    }
+
+    /* ---------- Page hero ---------- */
+    .page-hero {
+      padding: 40px 0 50px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono';
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--amber-soft);
+      background: rgba(217, 119, 46, 0.08);
+      border: 1px solid rgba(217, 119, 46, 0.25);
+      padding: 7px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: '●';
+      color: var(--moss);
+      font-size: 8px;
+      animation: pulseDot 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulseDot {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .25;
+      }
+    }
+
+    .page-hero h1 {
+      font-size: 44px;
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 14px;
+      max-width: 720px;
+    }
+
+    .page-hero h1 .grad {
+      background: linear-gradient(100deg, var(--amber) 10%, var(--wine) 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .page-hero p.lede {
+      font-size: 16px;
+      color: var(--ink-dim);
+      max-width: 560px;
+      line-height: 1.65;
+      margin-bottom: 26px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* quick-jump pill nav */
+    .jump-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .jump-pill {
+      font-family: 'Space Mono';
+      font-size: 12px;
+      padding: 9px 16px;
+      border-radius: 100px;
+      border: 1px solid var(--line-bright);
+      color: var(--ink-dim);
+      transition: all .2s;
+      background: transparent;
+    }
+
+    .jump-pill:hover {
+      border-color: var(--amber);
+      color: var(--amber-soft);
+      background: rgba(217, 119, 46, 0.06);
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    .cat-section {
+      padding: 48px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .cat-section:first-of-type {
+      border-top: none;
+    }
+
+    .sec-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 30px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .sec-head h2 {
+      font-size: 27px;
+      font-weight: 800;
+    }
+
+    .sec-head p {
+      color: var(--ink-dim);
+      font-size: 14.5px;
+      max-width: 420px;
+    }
+
+    .sec-eyebrow {
+      font-family: 'Space Mono';
+      font-size: 12px;
+      color: var(--amber-soft);
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .see-all {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: color .2s;
+    }
+
+    .see-all:hover {
+      color: var(--amber-soft);
+    }
+
+    /* ---------- Service detail cards ---------- */
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .svc-card {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px 20px;
+      transition: transform .3s cubic-bezier(.16, .8, .24, 1), border-color .3s, box-shadow .3s;
+    }
+
+    .svc-card:hover {
+      border-color: rgba(217, 119, 46, 0.28);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .svc-card .ic {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      margin-bottom: 14px;
+      background: linear-gradient(150deg, var(--bg-4), var(--bg-3));
+      border: 1px solid var(--line-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 -6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .svc-card .ic svg {
+      width: 19px;
+      height: 19px;
+      color: var(--amber-soft);
+    }
+
+    .svc-card h5 {
+      font-size: 14.5px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .svc-card p {
+      font-size: 12px;
+      color: var(--ink-dim);
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    .svc-card .svc-uses {
+      font-size: 11px;
+      color: var(--ink-dimmer);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .svc-card .svc-uses b {
+      color: var(--ink-dim);
+    }
+
+    .svc-book {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--amber-soft);
+      display: inline-flex;
+      gap: 5px;
+      align-items: center;
+      transition: gap .2s;
+    }
+
+    .svc-book:hover {
+      gap: 9px;
+    }
+
+    @media (max-width: 980px) {
+      .svc-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .svc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- Related equipment (rentals) ---------- */
+    .gear-band {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .rent-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .rent-card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all .3s cubic-bezier(.16, .8, .24, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rent-card:hover {
+      border-color: rgba(217, 119, 46, 0.3);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .rent-thumb {
+      height: 170px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rent-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .rent-avail {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      font-family: 'Space Mono';
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--moss);
+      background: rgba(169, 184, 76, 0.15);
+      border: 1px solid rgba(169, 184, 76, 0.3);
+      padding: 4px 9px;
+      border-radius: 100px;
+    }
+
+    .rent-body {
+      padding: 16px 18px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .rent-body h5 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .rent-included {
+      font-size: 11px;
+      color: var(--ink-dimmer);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+
+    .rent-foot {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .rent-cta {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+      display: inline-flex;
+      gap: 5px;
+      align-items: center;
+      transition: gap .2s, color .2s;
+    }
+
+    .rent-cta:hover {
+      gap: 9px;
+      color: var(--amber-soft);
+    }
+
+    @media (max-width: 980px) {
+      .rent-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .rent-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cta-band {
+      background: linear-gradient(120deg, rgba(217, 119, 46, 0.12), rgba(194, 77, 92, 0.06));
+      border: 1px solid rgba(217, 119, 46, 0.22);
+      border-radius: 24px;
+      padding: 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band h2 {
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .cta-band p {
+      color: var(--ink-dim);
+      margin-bottom: 26px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: var(--bg-2);
+    }
+
+    .foot-promo {
+      background: linear-gradient(115deg, rgba(217, 119, 46, 0.10), rgba(169, 184, 76, 0.04));
+      border-bottom: 1px solid var(--line);
+      padding: 22px 0;
+    }
+
+    .foot-promo .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .foot-promo p {
+      font-size: 13.5px;
+      color: var(--ink-dim);
+      max-width: 760px;
+      line-height: 1.7;
+    }
+
+    .foot-promo b {
+      color: var(--ink);
+    }
+
+    .foot-main {
+      padding: 50px 0 36px;
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .foot-col h5 {
+      font-size: 12.5px;
+      color: var(--ink);
+      margin-bottom: 16px;
+      font-family: 'Space Mono';
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .foot-col a {
+      display: block;
+      font-size: 13px;
+      color: var(--ink-dim);
+      margin-bottom: 10px;
+      transition: color .2s;
+    }
+
+    .foot-col a:hover {
+      color: var(--amber-soft);
+    }
+
+    .foot-bottom {
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: var(--ink-dimmer);
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-row a {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      border: 1px solid var(--line-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: var(--ink-dim);
+      transition: all .2s;
+    }
+
+    .social-row a:hover {
+      border-color: var(--amber);
+      color: var(--amber-soft);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 900px) {
+      .foot-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .wa-float {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      z-index: 70;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #25D366, #128C4A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+      font-size: 26px;
+      color: #fff;
+      transition: transform .25s cubic-bezier(.16, .8, .24, 1);
+      animation: floatBob 3.2s ease-in-out infinite;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.08);
+    }
+
+    @keyframes floatBob {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    .tilt {
+      transition: transform .25s cubic-bezier(.16, .8, .24, 1), border-color .3s, box-shadow .3s;
+      will-change: transform;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div><span class="dot">●</span>Media Services — photography, video, design & broadcast, all in-house</div>
+      <div class="topbar-right">
+        <span class="mono">KADIS EVENTS</span>
+        <a class="mono" href="tel:08061379390">📞 0806 137 9390</a>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="logo" href="index.html">
+        <img src="images/kadis eventmedia.png" alt="Kadis" style="height:38px; width:auto; border-radius:8px;">
+      </a>
+      <div class="nav-links">
+        <div class="nav-item current"><a href="media.html">Media</a>
+          <div class="nav-drop mono">
+            <a href="media.html#photography">Photography</a>
+            <a href="media.html#videography">Videography</a>
+            <a href="media.html#event-photography-video">Event Photography & Video</a>
+            <a href="media.html#corporate-photography">Corporate Photography</a>
+            <a href="media.html#product-photography">Product Photography</a>
+            <a href="media.html#studio-photography">Studio Photography</a>
+            <a href="media.html#video-production">Video Production</a>
+            <a href="media.html#video-editing">Video Editing</a>
+            <a href="media.html#motion-graphics-animation">Motion Graphics & Animation</a>
+            <a href="media.html#graphics-design">Graphics Design</a>
+            <a href="media.html#social-media-content">Social Media Content</a>
+            <a href="media.html#tv-online-commercials">TV/Online Commercials</a>
+            <a href="media.html#advert-jingles">Advert Jingles</a>
+            <a href="media.html#podcast-production">Podcast Production</a>
+            <a href="media.html#livestreaming">Livestreaming</a>
+            <a href="media.html#drone-aerial-coverage">Drone/Aerial Coverage</a>
+            <a href="media.html#mc-dj-services">MC & DJ services</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="event.html">Events</a>
+          <div class="nav-drop mono">
+            <a href="event.html#event-planning-management">Event Planning & Management</a><a
+              href="event.html#corporate-events">Corporate Events</a>
+            <a href="event.html#conferences-summits">Conferences & Summits</a>
+            <a href="event.html#weddings">Weddings</a>
+            <a href="event.html#product-services-launches">Product & Services launches</a>
+            <a href="event.html#concerts-shows">Concerts & Shows</a>
+            <a href="event.html#product-launches">Product Launches</a>
+            <a href="event.html#professional-corporate-training">Professional & Corporate Training</a>
+            <a href="event.html#business-production-networking">Business Production & Networking</a>
+            <a href="event.html#exhibitions-trade-fairs">Exhibitions & Trade Fairs</a>
+            <a href="event.html#education-programs-events">Education programs & Events</a>
+            <a href="event.html#event-decoration-styling">Event Decoration & Styling</a>
+            <a href="event.html#event-coordination">Event Coordination</a>
+            <a href="event.html#seminar-workshops">Seminar & Workshops</a>
+            <a href="event.html#event-marketing-publicity">Event marketing & Publicity</a>
+            <a href="event.html#digital-marketing-social-media">Digital marketing & Social media Promotion</a>
+            <a href="event.html#event-production">Event Production</a><a
+              href="event.html#exhibitions-business-showcases">Exhibitions & Business Showcases</a>
+            <a href="event.html#branding-content-creation">Branding & content creation</a>
+            <a href="event.html#mc-dj-services">MC & DJ services</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="index.html#rentals">Rentals</a>
+          <div class="nav-drop mono">
+            <a href="index.html#rentals">Cameras</a><a href="index.html#rentals">Lenses</a><a
+              href="index.html#rentals">Lighting Equipment</a><a href="index.html#rentals">Video Equipment</a>
+            <a href="index.html#rentals">Audio & Sound Equipment</a><a href="index.html#rentals">PA Systems</a><a
+              href="index.html#rentals">Microphones</a>
+            <a href="index.html#rentals">Projectors & Screens</a><a href="index.html#rentals">LED Screens</a><a
+              href="index.html#rentals">Tripods & Gimbals</a>
+            <a href="index.html#rentals">Staging & Event Equipment</a><a href="index.html#rentals">Generators/Power
+              Solutions</a><a href="index.html#rentals">Photo Booths</a>
+            <a href="index.html#rentals">Complete Event Packages</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="portfolio.html">Portfolio</a>
+          <div class="nav-drop mono">
+            <a href="portfolio.html#cat-photography">Photography</a><a
+              href="portfolio.html#cat-videography">Videography</a><a href="portfolio.html#cat-events">Events</a>
+            <a href="portfolio.html#cat-commercials">Commercials</a><a href="portfolio.html#cat-branding">Branding</a><a
+              href="portfolio.html#cat-livestreams">Livestreams</a>
+            <a href="portfolio.html#cat-before-after">Before & After</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="package.html">Packages</a>
+          <div class="nav-drop mono">
+            <a href="package.html#wedding">Wedding</a><a href="package.html#corporate">Corporate</a><a
+              href="package.html#event-coverage">Event Coverage</a>
+            <a href="package.html#livestream">Livestream</a><a href="package.html#podcast">Podcast</a><a
+              href="package.html#equipment-rental">Equipment Rental</a>
+            <a href="package.html#full-event-production">Full Event Production Package</a>
+          </div>
+        </div>
+        <a href="index.html#about" style="margin-top:15px;">About</a>
+        <a href="blog.html" style="margin-top:15px;">Blog</a>
+        <a href="index.html#contact" style="margin-top:15px;">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="icon-btn">⌕</div>
+        <a class="btn-dark"
+          href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20to%20book%20or%20rent%20something.">Book
+          / Rent Now</a>
+        <a class="btn-primary"
+          href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20a%20quote%20for%20media%2Fevents.">Request
+          a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap crumb"><a href="index.html">Home</a> · Media Services</div>
+
+  <!-- PAGE HERO -->
+  <header class="wrap page-hero">
+    <span class="eyebrow reveal">MEDIA SERVICES</span>
+    <h1 class="reveal">Photography, video, design & broadcast — <span class="grad">shot and finished in-house.</span>
+    </h1>
+    <p class="lede reveal">Every service below is delivered by our own crew on our own tested equipment. Pick a
+      service to jump straight to it, or scroll through everything we cover — from a single portrait sitting to a
+      full multi-camera livestream.</p>
+    <div class="hero-cta reveal">
+      <a class="btn-primary"
+        href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20a%20media%20service.">Request a
+        Quote →</a>
+      <a class="btn-ghost"
+        href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20book%20a%20media%20service.">Book a
+        Service</a>
+      <a class="btn-dark" href="#gear">Rent Related Gear</a>
+    </div>
+    <div class="jump-row reveal">
+      <a class="jump-pill" href="#photography">Photography</a>
+      <a class="jump-pill" href="#videography">Videography</a>
+      <a class="jump-pill" href="#design-post">Design & Post</a>
+      <a class="jump-pill" href="#broadcast-audio">Broadcast & Audio</a>
+      <a class="jump-pill" href="#gear">Related Gear</a>
+    </div>
+  </header>
+
+  <!-- PHOTOGRAPHY -->
+  <section id="photography" class="wrap cat-section">
+    <div class="sec-head reveal">
+      <div>
+        <span class="sec-eyebrow">CATEGORY 01</span>
+        <h2>Photography</h2>
+        <p>Stills work for people, products, brands and events — shot with our own cameras, lenses and lighting.</p>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal tilt" id="photography-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="18" height="13" rx="2" />
+            <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+            <circle cx="12" cy="13.5" r="3.2" />
+          </svg></div>
+        <h5>Photography</h5>
+        <p>General photography for any brief — portraits, events, products and everything between, shot and edited by
+          our in-house team.</p>
+        <div class="svc-uses"><b>Gear used:</b> camera, lens, lighting kit<br><b>Delivery:</b> edited digital gallery,
+          3–5 working days</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20photography.">Book a shoot →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="corporate-photography">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="16" rx="2" />
+            <path d="M3 10h18M8 2v4M16 2v4" />
+          </svg></div>
+        <h5>Corporate Photography</h5>
+        <p>Headshots, office and facility shoots for websites, decks and press use, delivered polished and ready to
+          publish.</p>
+        <div class="svc-uses"><b>Gear used:</b> camera, lens, lighting kit<br><b>Delivery:</b> retouched images, on-site
+          or in-studio</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20corporate%20photography.">Book a
+          shoot →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="product-photography">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <circle cx="12" cy="12" r="3.2" />
+          </svg></div>
+        <h5>Product Photography</h5>
+        <p>Clean, catalogue-ready product photography for ads, listings and packaging use, shot on seamless backdrops
+          with consistent lighting.</p>
+        <div class="svc-uses"><b>Gear used:</b> camera, macro lens, lighting kit<br><b>Output:</b> white-background &
+          lifestyle shots</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20product%20photography.">Book a
+          shoot →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="studio-photography">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="9" cy="9" r="2" />
+            <path d="M21 15 16 10 5 21" />
+          </svg></div>
+        <h5>Studio Photography</h5>
+        <p>Controlled-lighting studio sessions for portraits, brand shoots and small product ranges, using our own
+          backdrop and lighting setup.</p>
+        <div class="svc-uses"><b>Gear used:</b> studio lighting, backdrop, camera<br><b>Session:</b> by appointment,
+          studio or on-location</div>
+        <a class="svc-book"
+          href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20book%20a%20studio%20session.">Book a shoot
+          →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOGRAPHY -->
+  <section id="videography" class="wrap cat-section">
+    <div class="sec-head reveal">
+      <div>
+        <span class="sec-eyebrow">CATEGORY 02</span>
+        <h2>Videography</h2>
+        <p>Motion work for events, brand films and aerial footage — planned and shot end to end.</p>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal tilt" id="videography-card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="15" height="12" rx="2" />
+            <path d="M17 10 22 7v10l-5-3" />
+          </svg></div>
+        <h5>Videography</h5>
+        <p>Handheld and cinema-style video capture for events, brand work and documentary pieces, shot to be cut into a
+          finished film.</p>
+        <div class="svc-uses"><b>Gear used:</b> video camera, gimbal, tripod<br><b>Delivery:</b> raw footage + edited
+          cut</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20videography.">Book a shoot →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="event-photography-video">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z" />
+            <circle cx="12" cy="9" r="2.4" />
+          </svg></div>
+        <h5>Event Photography & Video</h5>
+        <p>Full-day coverage for weddings, parties and corporate events — stills and motion, one crew, one point of
+          contact.</p>
+        <div class="svc-uses"><b>Gear used:</b> 2x camera, video rig, lighting<br><b>Delivery:</b> edited photo gallery
+          & highlight video</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20event%20photography%2Fvideo.">Book
+          a shoot →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="video-production">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z" />
+            <path d="M4 7l8 4 8-4M12 11v10" />
+          </svg></div>
+        <h5>Video Production</h5>
+        <p>Brand films, explainers and documentary-style pieces, planned and shot end to end — from concept to final
+          cut.</p>
+        <div class="svc-uses"><b>Gear used:</b> cinema camera, lighting, audio<br><b>Includes:</b> scripting support &
+          storyboard</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20video%20production.">Book a shoot
+          →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="drone-aerial-coverage">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v4M4.2 7 7 9M19.8 7 17 9M4 15h4M16 15h4M8 19l1-4h6l1 4" />
+            <circle cx="12" cy="12" r="2.4" />
+          </svg></div>
+        <h5>Drone/Aerial Coverage</h5>
+        <p>Aerial photography and video coverage for venues, sites and large events, flown by a licensed pilot, where
+          permitted.</p>
+        <div class="svc-uses"><b>Gear used:</b> drone, licensed pilot<br><b>Delivery:</b> raw footage & edited
+          highlights</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20drone%2Faerial%20coverage.">Book
+          coverage →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN & POST -->
+  <section id="design-post" class="wrap cat-section">
+    <div class="sec-head reveal">
+      <div>
+        <span class="sec-eyebrow">CATEGORY 03</span>
+        <h2>Design & Post-Production</h2>
+        <p>Turning raw footage and briefs into finished, publishable content.</p>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal tilt" id="video-editing">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20 15 9l3-3 2 2-3 3L6 22l-4 1 1-4Z" />
+            <path d="M14 6l4 4" />
+          </svg></div>
+        <h5>Video Editing</h5>
+        <p>Cuts, colour and sound — turning raw footage into a finished, publishable film, formatted for its intended
+          platform.</p>
+        <div class="svc-uses"><b>Uses:</b> editing workstation, colour grading<br><b>Delivery:</b> platform-ready export
+          (social, TV, web)</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20video%20editing.">Start a project
+          →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="motion-graphics-animation">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16v12H4z" />
+            <path d="M8 20h8M9 16l3-3 3 3" />
+          </svg></div>
+        <h5>Motion Graphics & Animation</h5>
+        <p>Animated titles, lower-thirds and short motion pieces for brand and social use, built to match your visual
+          identity.</p>
+        <div class="svc-uses"><b>Uses:</b> motion design software<br><b>Formats:</b> square, vertical & widescreen
+          exports</div>
+        <a class="svc-book"
+          href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20motion%20graphics%2Fanimation.">Start a project
+          →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="graphics-design">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1" />
+            <rect x="14" y="3" width="7" height="7" rx="1" />
+            <rect x="3" y="14" width="7" height="7" rx="1" />
+            <rect x="14" y="14" width="7" height="7" rx="1" />
+          </svg></div>
+        <h5>Graphics Design</h5>
+        <p>Flyers, brand assets and print-ready design work built to your visual identity, delivered in both print and
+          digital formats.</p>
+        <div class="svc-uses"><b>Uses:</b> design software, print prep<br><b>Delivery:</b> print-ready & social-ready
+          files</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20graphics%20design.">Start a
+          project →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="social-media-content">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="M7 9h2M7 13h6" />
+          </svg></div>
+        <h5>Social Media Content</h5>
+        <p>A steady stream of scheduled, on-brand content built for your social channels, from shoot day through to
+          posting-ready files.</p>
+        <div class="svc-uses"><b>Uses:</b> phone/camera rig, ring light<br><b>Cadence:</b> weekly or monthly content
+          batches</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20social%20media%20content.">Start a
+          project →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BROADCAST & AUDIO -->
+  <section id="broadcast-audio" class="wrap cat-section">
+    <div class="sec-head reveal">
+      <div>
+        <span class="sec-eyebrow">CATEGORY 04</span>
+        <h2>Broadcast & Audio</h2>
+        <p>Commercials, jingles, podcasts, livestreams and on-the-mic talent for your event.</p>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal tilt" id="tv-online-commercials">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="15" height="10" rx="2" />
+            <path d="M6 4h7M9 21h4" />
+          </svg></div>
+        <h5>TV/Online Commercials</h5>
+        <p>Scripted, shot and edited commercials for broadcast and digital placement, produced to broadcast-safe
+          specifications.</p>
+        <div class="svc-uses"><b>Gear used:</b> cinema camera, lighting, audio<br><b>Delivery:</b> TV & digital cut
+          lengths</div>
+        <a class="svc-book"
+          href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20a%20TV%2Fonline%20commercial.">Start a project →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="advert-jingles">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V6l11-3v14" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="17" cy="15" r="3" />
+          </svg></div>
+        <h5>Advert Jingles</h5>
+        <p>Original jingles and audio branding, written, recorded and mixed in-house for radio, TV and digital use.</p>
+        <div class="svc-uses"><b>Gear used:</b> mic, audio interface, studio<br><b>Delivery:</b> mixed & mastered audio
+          file</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20an%20advert%20jingle.">Start a
+          project →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="podcast-production">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="2" width="6" height="12" rx="3" />
+            <path d="M5 11a7 7 0 0 0 14 0M12 18v4M9 22h6" />
+          </svg></div>
+        <h5>Podcast Production</h5>
+        <p>Podcast recording, editing and publishing — solo, guest or panel formats, recorded in-studio or on location.
+        </p>
+        <div class="svc-uses"><b>Gear used:</b> mics, mixer, recorder<br><b>Delivery:</b> edited audio + episode-ready
+          video</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20podcast%20production.">Start a
+          project →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="livestreaming">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.9 19.1a10 10 0 0 1 0-14.2M8 16a5 5 0 0 1 0-8M19.1 4.9a10 10 0 0 1 0 14.2M16 8a5 5 0 0 1 0 8" />
+            <circle cx="12" cy="12" r="1.6" />
+          </svg></div>
+        <h5>Livestreaming</h5>
+        <p>Multi-camera livestreams for conferences, concerts and product launches.</p>
+        <div class="svc-uses"><b>Gear used:</b> multi-cam rig, encoder, PA system</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20livestreaming.">Book coverage
+          →</a>
+      </div>
+      <div class="svc-card reveal tilt" id="mc-dj-services">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V6l11-3v14" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="17" cy="15" r="3" />
+          </svg></div>
+        <h5>MC & DJ Services</h5>
+        <p>Hosting and music for weddings, parties and corporate functions, paired with our own PA system.</p>
+        <div class="svc-uses"><b>Gear used:</b> PA system, mixer, wireless mics</div>
+        <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20an%20MC%20or%20DJ.">Book talent
+          →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED EQUIPMENT / GEAR -->
+  <section id="gear" class="gear-band">
+    <div class="wrap" style="padding: 64px 0;">
+      <div class="sec-head reveal">
+        <div>
+          <span class="sec-eyebrow">GEAR FOR MEDIA WORK</span>
+          <h2>Renting for a shoot? Start here</h2>
+          <p>The equipment our own media crew uses most — available to rent on its own, with or without a crew
+            attached.</p>
+        </div>
+        <a class="see-all" href="index.html#rentals">See the full rental catalogue →</a>
+      </div>
+
+      <div class="rent-grid">
+        <div class="rent-card reveal tilt">
+          <div class="rent-thumb">
+            <span class="rent-avail">Available</span>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxr8elckH-5EjLVsPVocUA-osVDEv0-aIRaAYyhoJeqQ&s=10"
+              alt="Cameras" loading="lazy">
+          </div>
+          <div class="rent-body">
+            <h5>Cameras</h5>
+            <div class="rent-included">For photography, corporate & product shoots. Includes battery, charger, memory
+              card & case.</div>
+            <div class="rent-foot"><a class="rent-cta"
+                href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20camera.">Rent now →</a>
+            </div>
+          </div>
+        </div>
+        <div class="rent-card reveal tilt">
+          <div class="rent-thumb">
+            <span class="rent-avail">Available</span>
+            <img
+              src="https://images.unsplash.com/photo-1580852300513-9b50125bf293?w=500&h=400&fit=crop&auto=format&q=80"
+              alt="Lenses" loading="lazy">
+          </div>
+          <div class="rent-body">
+            <h5>Lenses</h5>
+            <div class="rent-included">For portraits, product macro & wide event coverage. Includes caps, hood & pouch.
+            </div>
+            <div class="rent-foot"><a class="rent-cta"
+                href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20lens.">Rent now →</a>
+            </div>
+          </div>
+        </div>
+        <div class="rent-card reveal tilt">
+          <div class="rent-thumb">
+            <span class="rent-avail">Available</span>
+            <img src="https://images.unsplash.com/photo-1545242640-7c9e9cc07d23?w=500&h=400&fit=crop&auto=format&q=80"
+              alt="Lighting Equipment" loading="lazy">
+          </div>
+          <div class="rent-body">
+            <h5>Lighting Equipment</h5>
+            <div class="rent-included">For studio, product & video shoots. Includes stands, diffusers & power cables.
+            </div>
+            <div class="rent-foot"><a class="rent-cta"
+                href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20lighting%20equipment.">Rent
+                now →</a></div>
+          </div>
+        </div>
+        <div class="rent-card reveal tilt">
+          <div class="rent-thumb">
+            <span class="rent-avail">Available</span>
+            <img
+              src="https://images.unsplash.com/photo-1619479674806-8f6e70be07da?w=500&h=400&fit=crop&auto=format&q=80"
+              alt="Video Equipment" loading="lazy">
+          </div>
+          <div class="rent-body">
+            <h5>Video Equipment</h5>
+            <div class="rent-included">For videography & video production. Includes cinema camera, rig, monitor &
+              batteries.</div>
+            <div class="rent-foot"><a class="rent-cta"
+                href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20video%20equipment.">Rent now
+                →</a></div>
+          </div>
+        </div>
+        <div class="rent-card reveal tilt">
+          <div class="rent-thumb">
+            <span class="rent-avail">Available</span>
+            <img
+              src="https://images.unsplash.com/photo-1615458508880-ec0521ce754f?w=500&h=400&fit=crop&auto=format&q=80"
+              alt="Tripods & Gimbals" loading="lazy">
+          </div>
+          <div class="rent-body">
+            <h5>Tripods & Gimbals</h5>
+            <div class="rent-included">For steady handheld and locked-off shots. Includes quick-release plate & case.
+            </div>
+            <div class="rent-foot"><a class="rent-cta"
+                href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20tripod%2Fgimbal.">Rent now
+                →</a></div>
+          </div>
+        </div>
+        <div class="rent-card reveal tilt">
+          <div class="rent-thumb">
+            <span class="rent-avail">Available</span>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvA0llEFRBfcNekBy25NeGOpFPAACEuRthJGtmNAJ_GQ&s=10"
+              alt="RingLights" loading="lazy">
+          </div>
+          <div class="rent-body">
+            <h5>RingLights</h5>
+            <div class="rent-included">For social content & podcast recording. Includes stand, phone/camera clip &
+              cable.</div>
+            <div class="rent-foot"><a class="rent-cta"
+                href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20ring%20light.">Rent now
+                →</a></div>
+          </div>
+        </div>
+        <div class="rent-card reveal tilt">
+          <div class="rent-thumb">
+            <span class="rent-avail">Available</span>
+            <img
+              src="https://images.unsplash.com/photo-1603425013520-e0b30e6e37dc?w=500&h=400&fit=crop&auto=format&q=80"
+              alt="Audio & Sound Equipment" loading="lazy">
+          </div>
+          <div class="rent-body">
+            <h5>Audio & Sound Equipment</h5>
+            <div class="rent-included">For podcasts, jingles & video shoots. Includes recorder, cables & windshield.
+            </div>
+            <div class="rent-foot"><a class="rent-cta"
+                href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20audio%2Fsound%20equipment.">Rent
+                now →</a></div>
+          </div>
+        </div>
+        <div class="rent-card reveal tilt">
+          <div class="rent-thumb">
+            <span class="rent-avail">Available</span>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFoBW6sahyZpk8qNQYXAUYsjZYxelGsoP_t7BE-BPOxw&s=10"
+              alt="Drones" loading="lazy">
+          </div>
+          <div class="rent-body">
+            <h5>Drones</h5>
+            <div class="rent-included">For aerial photography & video coverage. Includes batteries, controller &
+              licensed pilot.</div>
+            <div class="rent-foot"><a class="rent-cta"
+                href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20drone.">Rent now →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top: 30px;">
+        <a class="btn-dark reveal" href="index.html#rentals">Browse every rental category →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="wrap">
+    <div class="cta-band reveal">
+      <h2>Not sure which service you need?</h2>
+      <p>Tell us the shoot, the date and what it's for, and we'll recommend the right service and gear, then send a
+        quote before anything's booked.</p>
+      <div class="cta-buttons">
+        <a class="btn-primary"
+          href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20a%20quote%20for%20media.">Request a
+          Quote →</a>
+        <a class="btn-ghost"
+          href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20book%20a%20media%20service.">Book a
+          Service</a>
+        <a class="btn-dark" href="tel:08061379390">Call 0806 137 9390</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-promo">
+      <div class="wrap">
+        <p><b>Ready to book?</b> — reach us by phone or WhatsApp for a quote on media, event production or
+          equipment rentals, anywhere within Abuja and 4 surrounding states.</p>
+        <a class="btn-primary" href="https://wa.me/2348061379390">Book Now →</a>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="foot-main">
+        <div class="foot-grid">
+          <div class="foot-col">
+            <a class="logo" href="index.html" style="margin-bottom:16px;">
+              <img src="images/kadis eventmedia.png" alt="Kadis" style="height:38px; width:auto; border-radius:8px;">
+            </a>
+            <p style="color:var(--ink-dim); font-size:13px; line-height:1.7; max-width:260px;">Kadis Events
+              Media & Rentals production, coverage and equipment rentals for weddings, corporates, conferences and
+              concerts across Abuja.</p>
+          </div>
+          <div class="foot-col">
+            <h5>Media</h5>
+            <a href="media.html#photography">Photography</a>
+            <a href="media.html#videography">Videography</a>
+            <a href="media.html#video-production">Video Production</a>
+            <a href="media.html#video-editing">Video Editing</a>
+            <a href="media.html#graphics-design">Graphics & Branding</a>
+            <a href="media.html#motion-graphics-animation">Motion Graphics & Animation</a>
+            <a href="media.html#advert-jingles">Advert/Jingles</a>
+            <a href="media.html#podcast-production">Podcast Production</a>
+            <a href="media.html#livestreaming">Livestreaming</a>
+          </div>
+          <div class="foot-col">
+            <h5>Events</h5>
+            <a href="event.html##event-planning-management">Event Planning</a>
+            <a href="event.html#conferences-summits">Corporate Events</a>
+            <a href="event.html#conferences-summits">Conferences</a>
+            <a href="event.html#weddings">Weddings</a>
+            <a href="event.html#concerts-shows">Concert & Shows</a>
+            <a href="event.html#product-launches">Product Launches</a>
+            <a href="event.html#parties">Parties</a>
+            <a href="event.html#event-production">Event Production</a>
+            <a href="event.html#event-decoration">Event Decoration</a>
+          </div>
+         <div class="foot-col">
+            <h5>Rentals</h5>
+            <a href="index.html#rentals">Camera</a>
+            <a href="index.html#rentals">Lenses</a>
+            <a href="index.html#rentals">Lighting</a>
+            <a href="index.html#rentals">Audio & PA</a>
+            <a href="index.html#rentals">Projectors & Screens</a>
+            <a href="index.html#rentals">LED Screens</a>
+            <a href="index.html#rentals">Staging</a>
+            <a href="index.html#rentals">Phone Booths</a>
+            <a href="package.html">Event Packages</a>
+          </div>
+          <div class="foot-col">
+            <h5>Company</h5>
+            <a href="index.html#about">About Us</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#faqs">FAQs</a>
+          </div>
+          <div class="foot-col">
+            <h5>Contact</h5>
+            <a href="tel:08024207231">0802 420 7231</a>
+            <a href="tel:08024207231">0806 137 9390 </a>
+            <a href="#">Head of Service, Block B, 8th Floor, Federal Secretariat, CBD/Maitama, Abuja</a>
+            <a href="mailto:kadisdigitals@gmail.com">kadisdigitals@gmail.com</a>
+          </div>
+          <div class="foot-col">
+            <h5>Blog Categories</h5>
+            <a href="blog.html#post-event-equipment-rental-abuja">Event Equipment Rental in Abuja</a>
+            <a href="blog.html#post-audio-sound-system-rental">Audio & Sound System Rental</a>
+            <a href="blog.html#post-led-screen-projector-rental">LED Screen & Projector Rental</a>
+            <a href="blog.html#post-event-lighting-stage-production">Event Lighting & Stage Production</a>
+            <a href="blog.html#post-corporate-event-conference-solutions">Corporate Event & Conference Solutions</a>
+            <a href="blog.html#post-wedding-social-event-solutions">Wedding & Social Event Solutions</a>
+            <a href="blog.html#post-media-production-coverage">Media Production & Coverage</a>
+            <a href="blog.html#post-live-streaming-broadcasting">Live Streaming & Broadcasting</a>
+            <a href="blog.html#post-event-photography-videography">Event Photography & Videography</a>
+            <a href="blog.html#post-dj-equipment-entertainment-rentals">DJ Equipment & Entertainment Rentals</a>
+            <a href="blog.html#post-mc-compere-event-hosting">MC, Compere & Event Hosting</a>
+            <a href="blog.html#post-cctv-cameras-event-security">CCTV, Cameras & Event Security</a>
+            <a href="blog.html#post-power-backup-solutions-events">Power & Backup Solutions for Events</a>
+            <a href="blog.html#post-event-planning-management">Event Planning & Management</a>
+            <a href="blog.html#post-ict-digital-solutions-events">ICT & Digital Solutions for Events</a>
+            <a href="blog.html#post-kadis-events-rental-guides">KADIS Events & Rental Guides</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span>© 2020–2026 KADIS.COM.NG · All Rights Reserved</span>
+        <div class="social-row">
+          <a href="https://web.facebook.com/kadisdigitals" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com/kadisdigitals" aria-label="Instagram">ig</a>
+          <a href="https://www.youtube.com/@kadisdigitals" aria-label="YouTube">yt</a>
+          <a href="https://www.tiktok.com/@kadisdigitals" aria-label="TikTok">tt</a>
+        </div>
+        <span>Powered by E-Franky Global Services Limited</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/2348061379390" aria-label="Chat on WhatsApp">💬</a>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = Number(entry.target.dataset.idx || 0);
+          entry.target.style.transitionDelay = Math.min(idx, 6) * 70 + 'ms';
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.dataset.idx = i % 6;
+      io.observe(el);
+    });
+  </script>
+
+  <script src="effects.js"></script>
+
+  <script>
+  (function () {
+    var nav = document.querySelector('nav');
+    if (!nav) return;
+    var toggle = nav.querySelector('.nav-toggle');
+    var items = nav.querySelectorAll('.nav-item');
+
+    items.forEach(function (item) {
+      var drop = item.querySelector('.nav-drop');
+      if (!drop) return;
+      var caret = document.createElement('button');
+      caret.type = 'button';
+      caret.className = 'nav-caret';
+      caret.setAttribute('aria-label', 'Toggle submenu');
+      caret.innerHTML = '&#9662;';
+      item.appendChild(caret);
+      caret.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var isOpen = item.classList.contains('open');
+        items.forEach(function (i) { i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('menu-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (!isOpen) items.forEach(function (i) { i.classList.remove('open'); });
+      });
+    }
+
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('menu-open') && !nav.contains(e.target)) {
+        nav.classList.remove('menu-open');
+        items.forEach(function (i) { i.classList.remove('open'); });
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1100 && nav.classList.contains('menu-open')) {
+        nav.classList.remove('menu-open');
+        items.forEach(function (i) { i.classList.remove('open'); });
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+  </script>
+
+</body>
+
+</html>
