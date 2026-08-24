@@ -43,7 +43,7 @@
     }
 
     body {
-      background: rgb(43, 39, 33);
+      background: rgb(46, 45, 44);
       color: var(--ink);
       font-family: 'Manrope', sans-serif;
       overflow-x: hidden;
@@ -96,9 +96,15 @@
     .wrap {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 0 32px;
+      padding: 0 32px 0 20px;
       position: relative;
       z-index: 2;
+    }
+
+    @media (max-width: 480px) {
+      .wrap {
+        padding-left: 16px;
+      }
     }
 
     .reveal {
@@ -112,12 +118,22 @@
       transform: translateY(0);
     }
 
-        .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-    @media (max-width: 980px){
-      .team-grid{grid-template-columns:repeat(2,1fr);}
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
-    @media (max-width: 560px){
-      .team-grid{grid-template-columns:1fr;}
+
+    @media (max-width: 980px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -172,6 +188,7 @@
       backdrop-filter: blur(16px) saturate(140%);
       border-bottom: 1px solid var(--line);
     }
+
 
     .nav-inner {
       display: flex;
@@ -358,60 +375,174 @@
       box-shadow: 0 14px 30px rgba(223, 184, 154, 0.3);
     }
 
-        .nav-toggle{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:40px;height:40px;min-width:40px;border-radius:10px;border:1px solid var(--line-bright);background:transparent;cursor:pointer;padding:0;flex-shrink:0;}
-    .nav-toggle span{display:block;width:20px;height:2px;background:var(--ink);transition:transform .25s ease,opacity .2s ease;}
-    nav.menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-    nav.menu-open .nav-toggle span:nth-child(2){opacity:0;}
-    nav.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .nav-caret{display:none;}
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--line-bright);
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--ink);
+      transition: transform .25s ease, opacity .2s ease;
+    }
+
+    nav.menu-open .nav-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    nav.menu-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    nav.menu-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-caret {
+      display: none;
+    }
 
     @media (max-width: 1100px) {
-      .nav-toggle{display:flex;}
-      .nav-links{
-        display:none;
-        position:absolute;
-        top:100%;
-        left:0;
-        right:0;
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-        background:var(--bg-3);
-        border-bottom:1px solid var(--line-bright);
-        max-height:calc(100vh - 78px);
-        overflow-y:auto;
-        padding:6px 20px 24px;
-        box-shadow:0 24px 40px rgba(0,0,0,.45);
+      .nav-toggle {
+        display: flex;
       }
-      nav.menu-open .nav-links{display:flex;}
-      .nav-item:hover .nav-drop{transform:none;left:0;right:0;}
-      .nav-item.open .nav-drop{transform:none;left:0;right:0;}
-      .nav-links > a{margin-top:0 !important;width:100%;padding:14px 4px;border-bottom:1px solid var(--line);}
-      .nav-item{width:100%;position:relative;}
-      .nav-item > a{margin-top:0 !important;width:100%;padding:14px 44px 14px 4px;border-bottom:1px solid var(--line);box-sizing:border-box;}
-      .nav-item > a::after{display:none;}
-      .nav-caret{
-        display:flex;align-items:center;justify-content:center;
-        position:absolute;right:0;top:0;width:44px;height:48px;
-        background:transparent;border:none;color:var(--ink-dim);cursor:pointer;
-        transition:transform .2s ease,color .2s ease;
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--bg-3);
+        border-bottom: 1px solid var(--line-bright);
+        max-height: calc(100vh - 78px);
+        overflow-y: auto;
+        padding: 6px 20px 24px;
+        box-shadow: 0 24px 40px rgba(0, 0, 0, .45);
       }
-      .nav-item.open .nav-caret{transform:rotate(180deg);color:var(--amber-soft);}
-      .nav-drop{
-        position:static;display:none;opacity:1;visibility:visible;transform:none;
-        min-width:0;width:100%;background:rgba(255,255,255,0.03);
-        border:none;border-radius:10px;box-shadow:none;padding:6px;margin:0 0 10px;
+
+      nav.menu-open .nav-links {
+        display: flex;
       }
-      .nav-item.open .nav-drop{display:block;}
+
+      .nav-item:hover .nav-drop {
+        transform: none;
+        left: 0;
+        right: 0;
+      }
+
+      .nav-item.open .nav-drop {
+        transform: none;
+        left: 0;
+        right: 0;
+      }
+
+      .nav-links>a {
+        margin-top: 0 !important;
+        width: 100%;
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-item {
+        width: 100%;
+        position: relative;
+      }
+
+      .nav-item>a {
+        margin-top: 0 !important;
+        width: 100%;
+        padding: 14px 44px 14px 4px;
+        border-bottom: 1px solid var(--line);
+        box-sizing: border-box;
+      }
+
+      .nav-item>a::after {
+        display: none;
+      }
+
+      .nav-caret {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 44px;
+        height: 48px;
+        background: transparent;
+        border: none;
+        color: var(--ink-dim);
+        cursor: pointer;
+        transition: transform .2s ease, color .2s ease;
+      }
+
+      .nav-item.open .nav-caret {
+        transform: rotate(180deg);
+        color: var(--amber-soft);
+      }
+
+      .nav-drop {
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        min-width: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.03);
+        border: none;
+        border-radius: 10px;
+        box-shadow: none;
+        padding: 6px;
+        margin: 0 0 10px;
+      }
+
+      .nav-item.open .nav-drop {
+        display: block;
+      }
     }
 
     @media (max-width: 560px) {
+
       .nav-actions .icon-btn,
-      .nav-actions .btn-dark{display:none;}
-      .nav-actions{gap:8px;}
-      .nav-actions .btn-primary{padding:9px 14px;font-size:12.5px;}
-      .nav-inner{height:66px;}
-      .logo img{height:32px;}
+      .nav-actions .btn-dark {
+        display: none;
+      }
+
+      .nav-actions {
+        gap: 8px;
+      }
+
+      .nav-actions .btn-primary {
+        padding: 9px 14px;
+        font-size: 12.5px;
+      }
+
+      .nav-inner {
+        height: 66px;
+      }
+
+      .logo img {
+        height: 32px;
+      }
     }
 
 
@@ -540,10 +671,11 @@
 
     .em-hero p.lede {
       font-size: 17px;
-      color: var(--ink-dim);
+      color: rgb(205, 196, 196);
       max-width: 480px;
       line-height: 1.65;
       margin-bottom: 26px;
+      margin-left: 15px;
     }
 
     .hero-cta {
@@ -973,6 +1105,10 @@
 
     .diff-row.head .h {
       color: var(--amber-soft);
+    }
+
+    .hero-tagline .mono {
+      margin-left: 15px;
     }
 
     /* ---------- Tabbed grids ---------- */
@@ -1705,6 +1841,10 @@
       margin-bottom: 18px;
     }
 
+    .hero-tagline .mono {
+      margin-left: 50px;
+    }
+
     .testi-who {
       display: flex;
       align-items: center;
@@ -2107,8 +2247,9 @@
 
     .foot-grid {
       display: grid;
-      grid-template-columns: 1.4fr repeat(4, 1fr);
-      gap: 32px;
+      grid-template-columns: 1.3fr repeat(6, 1fr);
+      gap: 24px;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr 0.8fr 0.8fr 0.9fr;
     }
 
     .foot-col h5 {
@@ -2173,6 +2314,12 @@
       }
     }
 
+    @media (max-width: 900px) {
+      .foot-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     .wa-float {
       position: fixed;
       bottom: 26px;
@@ -2218,6 +2365,14 @@
       align-items: center;
       justify-content: center;
       transition: opacity .6s ease, visibility .6s ease;
+    }
+
+    .em-hero-text {
+      margin-left: 10px;
+    }
+
+    .em-hero-text h1 {
+      width: 70%;
     }
 
     #cinema-loader.hide {
@@ -2473,8 +2628,10 @@
         </div>
         <div class="nav-item"><a href="package.html">Packages</a>
           <div class="nav-drop mono">
-            <a href="package.html#wedding">Wedding</a><a href="package.html#corporate">Corporate</a><a href="package.html#event-coverage">Event Coverage</a>
-            <a href="package.html#livestream">Livestream</a><a href="package.html#podcast">Podcast</a><a href="package.html#equipment-rental">Equipment Rental</a>
+            <a href="package.html#wedding">Wedding</a><a href="package.html#corporate">Corporate</a><a
+              href="package.html#event-coverage">Event Coverage</a>
+            <a href="package.html#livestream">Livestream</a><a href="package.html#podcast">Podcast</a><a
+              href="package.html#equipment-rental">Equipment Rental</a>
             <a href="package.html#full-production">Full Event Production Package</a>
           </div>
         </div>
@@ -2483,7 +2640,8 @@
         <a href="#contact" style="margin-top:15px;">Contact</a>
       </div>
       <div class="nav-actions">
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation menu"
+          aria-expanded="false"><span></span><span></span><span></span></button>
         <div class="icon-btn">⌕</div>
         <a class="btn-dark"
           href="https://wa.me/2348061379390?text=Hi%20Kadis%2C%20I%27d%20like%20to%20book%20or%20rent%20something.">Book
@@ -2498,15 +2656,13 @@
   <div class="wrap crumb" id="top">Events & Media · Kadis Production, Coverage & Rentals</div>
 
   <header class="wrap em-hero">
-    <div>
+    <div class="em-hero-text">
       <span class="eyebrow">KADIS EVENTS, MEDIA & RENTALS</span>
-      <h1>Capture it. Stage it. <span class="grad">Make it unforgettable.</span></h1>
-      <div class="hero-tagline mono">MEDIA. EVENTS. PRODUCTION. EQUIPMENT.</div>
-      <p class="lede">KADIS EVENTS,MEDIA & RENTALS
-        <br> • Events • Production • Equipment
-
-        Create. Capture. Produce. Celebrate.
-
+      <h1>Rent it. Capture it. Stage it.
+        <span class="grad">Make it unforgettable.</span>
+      </h1>
+      <div class="hero-tagline mono">Media • Events • Production • Rental Equipment • Technology</div>
+      <p class="lede">
         Professional media production, event management, event technology and equipment rental services for corporate
         organizations, institutions, brands, families and event professionals in Abuja and beyond.
       </p>
@@ -2795,6 +2951,19 @@
         <p>Clean, catalogue-ready product photography for ads, listings and packaging use.</p>
         <a class="svc-book" href="https://wa.me/2348061379390?text=Hi%2C%20I%20need%20product%20photography.">Book a
           shoot →</a>
+      </div>
+      <div class="svc-card reveal tilt" data-cat="photo">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="9" cy="9" r="2" />
+            <path d="M21 15 16 10 5 21" />
+          </svg></div>
+        <h5>Studio Photography</h5>
+        <p>Controlled-lighting studio sessions for portraits, brand shoots and small product ranges.</p>
+        <a class="svc-book"
+          href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20book%20a%20studio%20session.">Book a shoot
+          →</a>
       </div>
       <div class="svc-card reveal tilt" data-cat="video">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
@@ -3264,7 +3433,8 @@
       <div class="rent-card reveal tilt">
         <div class="rent-thumb">
           <span class="rent-avail">Available</span>
-          <img src="https://images.unsplash.com/photo-1603425013520-e0b30e6e37dc?w=500&h=400&fit=crop&auto=format&q=80"
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnjwtfRUpGeDx0GXTLTRjhS6tcSx6e5_AqbdmNIMzA4A&s=10"
             alt="Audio & Sound Equipment" loading="lazy">
         </div>
         <div class="rent-body">
@@ -3336,7 +3506,7 @@
               now →</a></div>
         </div>
       </div>
-      
+
       <div class="rent-card reveal tilt">
         <div class="rent-thumb">
           <span class="rent-avail">Available</span>
@@ -3383,6 +3553,48 @@
         </div>
         <div class="rent-body">
           <h5>Staging & Event Equipment</h5>
+          <ul class="rent-specs">
+            <li>Rate <b>On request / per event</b></li>
+            <li>Deposit <b>Required, refundable</b></li>
+          </ul>
+          <div class="rent-included">Includes: decking, trussing and backdrop frame.</div>
+          <div class="rent-foot"><a class="rent-cta"
+              href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20staging%2Fevent%20equipment.">Rent
+              now →</a></div>
+        </div>
+      </div>
+
+
+      <div class="rent-card reveal tilt">
+        <div class="rent-thumb">
+          <span class="rent-avail">Available</span>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSldLET2TgzJiNNMu3D30FVwOpdvQH0gEQDlqaSK7f07A&s=10"
+            alt="Security scanners" loading="lazy">
+        </div>
+        <div class="rent-body">
+          <h5>Security scanners</h5>
+          <ul class="rent-specs">
+            <li>Rate <b>On request / per event</b></li>
+            <li>Deposit <b>Required, refundable</b></li>
+          </ul>
+          <div class="rent-included">Includes: decking, trussing and backdrop frame.</div>
+          <div class="rent-foot"><a class="rent-cta"
+              href="https://wa.me/2348061379390?text=Hi%2C%20I%27d%20like%20to%20rent%20staging%2Fevent%20equipment.">Rent
+              now →</a></div>
+        </div>
+      </div>
+
+
+      <div class="rent-card reveal tilt">
+        <div class="rent-thumb">
+          <span class="rent-avail">Available</span>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0YpCilXip6j_eJEWdDg_As8bxrweKyiWl_xNPKQ7C6g&s=10"
+            alt="Network Booster" loading="lazy">
+        </div>
+        <div class="rent-body">
+          <h5>Network Booster</h5>
           <ul class="rent-specs">
             <li>Rate <b>On request / per event</b></li>
             <li>Deposit <b>Required, refundable</b></li>
@@ -3517,9 +3729,7 @@
       <div class="rent-card reveal tilt">
         <div class="rent-thumb">
           <span class="rent-avail">Available</span>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXmbTHlcpK1EKB2dcNUIZQbV3qUSpk8GkX1xrahltOjg&s=10"
-            alt="Mobile Speakers" loading="lazy">
+          <img src="images/audio.jpg" alt="Mobile Speakers" loading="lazy">
         </div>
         <div class="rent-body">
           <h5>Mobile Speakers</h5>
@@ -3657,9 +3867,7 @@
       <div class="rent-card reveal tilt">
         <div class="rent-thumb">
           <span class="rent-avail">Available</span>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIt8PrD9FxFAK0tnpwJlJKq-Fw_qq-MV-hP7u-5uZ6zA&s=10"
-            alt="Mobile Power Tanks" loading="lazy">
+          <img src="images/tank.jpg" alt="Mobile Power Tanks" loading="lazy">
         </div>
         <div class="rent-body">
           <h5>Mobile Power Tanks</h5>
@@ -4243,7 +4451,7 @@
         <h6>ICT & Digital Solutions for Events</h6>
       </a>
       <a class="blog-card reveal" href="blog.html#post-kadis-events-rental-guides"><span class="tag mono">News</span>
-        <h6>KADIS Events & Rental Guides</h6>
+        <h6>KADIS Events, Media & Rental Guides</h6>
       </a>
     </div>
   </section>
@@ -4427,7 +4635,7 @@
             <a class="logo" href="index.html" style="margin-bottom:16px;">
               <img src="images/kadis eventmedia.png" alt="Kadis" style="height:38px; width:auto; border-radius:8px;">
             </a>
-            <p style="color:var(--ink-dim); font-size:13px; line-height:1.7; max-width:260px;">Kadis Events
+            <p style="color:var(--ink-dim); font-size:13px; line-height:1.7; max-width:260px;">Kadis Events,
               Media & Rentals production, coverage and equipment rentals for weddings, corporates, conferences and
               concerts across Abuja.</p>
           </div>
@@ -4442,6 +4650,11 @@
             <a href="media.html#advert-jingles">Advert/Jingles</a>
             <a href="media.html#podcast-production">Podcast Production</a>
             <a href="media.html#livestreaming">Livestreaming</a>
+            <a href="media.html#digital-marketing">Digital Marketing</a>
+            <a href="media.html#digital-printing">Digital Printing</a>
+            <a href="media.html#leads-generation">Leads Generation</a>
+            <a href="media.html#website-designing">Website Designing</a>
+            <a href="media.html#social-media-ads">Social Media Ads</a>
           </div>
           <div class="foot-col">
             <h5>Events</h5>
@@ -4454,16 +4667,37 @@
             <a href="event.html#event-production">Event Production</a>
             <a href="event.html#event-decoration">Event Decoration</a>
           </div>
-           <div class="foot-col">
+          <div class="foot-col">
             <h5>Rentals</h5>
-            <a href="index.html#rentals">Camera</a>
-            <a href="index.html#rentals">Lenses</a>
-            <a href="index.html#rentals">Lighting</a>
-            <a href="index.html#rentals">Audio & PA</a>
-            <a href="index.html#rentals">Projectors & Screens</a>
+            <a href="index.html#rentals">JBL 15-Inch Double Speakers</a>
+            <a href="index.html#rentals">Power Amplifiers</a>
+            <a href="index.html#rentals">Mixers</a>
+            <a href="index.html#rentals">Public Address Systems</a>
+            <a href="index.html#rentals">Mobile Speakers</a>
+            <a href="index.html#rentals">Microphones</a>
             <a href="index.html#rentals">LED Screens</a>
-            <a href="index.html#rentals">Staging</a>
-            <a href="index.html#rentals">Phone Booths</a>
+            <a href="index.html#rentals">Projectors</a>
+            <a href="index.html#rentals">Laptops</a>
+            <a href="index.html#rentals">Paper Printers</a>
+            <a href="index.html#rentals">Photo/Passport Printers</a>
+            <a href="index.html#rentals">Photocopiers</a>
+            <a href="index.html#rentals">Scanners</a>
+            <a href="index.html#rentals">Photo Cameras</a>
+            <a href="index.html#rentals">Video Cameras</a>
+            <a href="index.html#rentals">Mobile Power Tanks</a>
+            <a href="index.html#rentals">Ring Lights</a>
+            <a href="index.html#rentals">Tripods</a>
+            <a href="index.html#rentals">Drones</a>
+            <a href="index.html#rentals">Delivery Bikes</a>
+            <a href="index.html#rentals">Welding Machines</a>
+            <a href="index.html#rentals">Drilling Machines</a>
+            <a href="index.html#rentals">ICT Engineering Tools</a>
+            <a href="index.html#rentals">Satellite Trackers & Finders</a>
+            <a href="index.html#rentals">Walkie Talkies</a>
+            <a href="index.html#rentals">Garretts</a>
+            <a href="index.html#rentals">CCTV Cameras</a>
+            <a href="index.html#rentals">Routers & Switches</a>
+
             <a href="package.html">Event Packages</a>
           </div>
           <div class="foot-col">
@@ -4573,54 +4807,54 @@
 
 
   <script>
-  (function () {
-    var nav = document.querySelector('nav');
-    if (!nav) return;
-    var toggle = nav.querySelector('.nav-toggle');
-    var items = nav.querySelectorAll('.nav-item');
+    (function () {
+      var nav = document.querySelector('nav');
+      if (!nav) return;
+      var toggle = nav.querySelector('.nav-toggle');
+      var items = nav.querySelectorAll('.nav-item');
 
-    items.forEach(function (item) {
-      var drop = item.querySelector('.nav-drop');
-      if (!drop) return;
-      var caret = document.createElement('button');
-      caret.type = 'button';
-      caret.className = 'nav-caret';
-      caret.setAttribute('aria-label', 'Toggle submenu');
-      caret.innerHTML = '&#9662;';
-      item.appendChild(caret);
-      caret.addEventListener('click', function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-        var isOpen = item.classList.contains('open');
-        items.forEach(function (i) { i.classList.remove('open'); });
-        if (!isOpen) item.classList.add('open');
+      items.forEach(function (item) {
+        var drop = item.querySelector('.nav-drop');
+        if (!drop) return;
+        var caret = document.createElement('button');
+        caret.type = 'button';
+        caret.className = 'nav-caret';
+        caret.setAttribute('aria-label', 'Toggle submenu');
+        caret.innerHTML = '&#9662;';
+        item.appendChild(caret);
+        caret.addEventListener('click', function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          var isOpen = item.classList.contains('open');
+          items.forEach(function (i) { i.classList.remove('open'); });
+          if (!isOpen) item.classList.add('open');
+        });
       });
-    });
 
-    if (toggle) {
-      toggle.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('menu-open');
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        if (!isOpen) items.forEach(function (i) { i.classList.remove('open'); });
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          var isOpen = nav.classList.toggle('menu-open');
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          if (!isOpen) items.forEach(function (i) { i.classList.remove('open'); });
+        });
+      }
+
+      document.addEventListener('click', function (e) {
+        if (nav.classList.contains('menu-open') && !nav.contains(e.target)) {
+          nav.classList.remove('menu-open');
+          items.forEach(function (i) { i.classList.remove('open'); });
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
       });
-    }
 
-    document.addEventListener('click', function (e) {
-      if (nav.classList.contains('menu-open') && !nav.contains(e.target)) {
-        nav.classList.remove('menu-open');
-        items.forEach(function (i) { i.classList.remove('open'); });
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 1100 && nav.classList.contains('menu-open')) {
-        nav.classList.remove('menu-open');
-        items.forEach(function (i) { i.classList.remove('open'); });
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  })();
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1100 && nav.classList.contains('menu-open')) {
+          nav.classList.remove('menu-open');
+          items.forEach(function (i) { i.classList.remove('open'); });
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
   </script>
 
 </body>
