@@ -1975,6 +1975,12 @@
         }
       });
     })();
+    document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+  });
+});
   </script>
 
 </body>
