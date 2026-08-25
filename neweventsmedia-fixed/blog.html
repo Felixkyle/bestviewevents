@@ -329,9 +329,11 @@
         nav.menu-open .nav-toggle span:nth-child(3) {
             transform: translateY(-7px) rotate(-45deg);
         }
-        .num.mono{
+
+        .num.mono {
             color: white;
         }
+
         .nav-caret {
             display: none;
         }
@@ -397,6 +399,7 @@
             .nav-item>a::after {
                 display: none;
             }
+
             .nav-caret {
                 display: flex;
                 align-items: center;
@@ -1565,7 +1568,14 @@
                 }
             });
         })();
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+            });
+        });
     </script>
+
 
 </body>
 
