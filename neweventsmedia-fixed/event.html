@@ -1754,6 +1754,35 @@
             flex-direction: column;
         }
 
+
+        .em-hero-photo {
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--line-bright);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        .em-hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+
+        .em-hero-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(11, 12, 15, 0) 35%, rgba(11, 12, 15, 0.9) 100%);
+        }
+
+        .reel-stack {
+            z-index: 2;
+        }
+
         .rent-body h5 {
             font-size: 14px;
             font-weight: 700;
@@ -1977,6 +2006,9 @@
         </div>
 
         <div class="em-visual">
+            <div class="em-hero-photo">
+                <img src="images/crew-shoot.png" alt="Kadis crew covering a live event">
+            </div>
             <div class="reel-stack">
                 <div class="rec-indicator"><span class="rec-dot"></span>RUN OF SHOW</div>
                 <div class="reel-card tilt float-idle">
@@ -3245,6 +3277,12 @@
                 }
             });
         })();
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+            });
+        });
     </script>
 
 </body>
